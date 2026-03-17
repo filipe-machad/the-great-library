@@ -16,9 +16,12 @@ interface PageLayoutProps {
 export function PageLayout({
   children,
   showBackLink = false,
+  backHref = "/",
+  backLabel,
   onSearchOpen,
 }: PageLayoutProps) {
   const t = useTranslations("nav");
+  const resolvedBackLabel = backLabel ?? t("returnToLibrary");
 
   return (
     <div
@@ -40,9 +43,6 @@ export function PageLayout({
       <main className="max-w-3xl mx-auto px-6 py-16 relative">
         {showBackLink && (
           <Link
-            href="/"
-        {showBackLink && (
-          <Link
             href={backHref}
             className="inline-flex items-center gap-2 mb-12 group"
             style={{ color: "var(--link-color)" }}
@@ -55,6 +55,9 @@ export function PageLayout({
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {resolvedBackLabel}
+            </span>
+          </Link>
+        )}
         {children}
       </main>
 
