@@ -19,8 +19,8 @@ export function Footer() {
     <footer
       className="border-t mt-24"
       style={{
-        backgroundColor: "#2a2620",
-        borderColor: "rgba(248, 245, 240, 0.15)",
+        backgroundColor: "var(--footer-bg)",
+        borderColor: "var(--footer-border)",
       }}
     >
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">
@@ -33,7 +33,7 @@ export function Footer() {
           className="mb-2"
           style={{
             fontFamily: "var(--font-heading)",
-            color: "var(--primary-foreground)",
+            color: "var(--footer-foreground)",
             fontSize: "1.25rem",
           }}
         >
@@ -41,7 +41,7 @@ export function Footer() {
         </h4>
         <p
           className="text-sm italic mb-8"
-          style={{ color: "var(--primary-foreground)", opacity: 0.85 }}
+          style={{ color: "var(--footer-foreground)", opacity: 0.85 }}
         >
           {t("text")}
         </p>
@@ -53,7 +53,7 @@ export function Footer() {
               className="relative inline-block text-xs tracking-widest transition-colors duration-200 hover:text-[var(--accent-gold)] after:absolute after:left-0 after:right-0 after:bottom-[-5px] after:h-px after:bg-[var(--accent-gold)] after:opacity-0 after:transition-opacity after:duration-200 after:delay-150 hover:after:opacity-100 hover:after:delay-50"
               style={{
                 fontFamily: "var(--font-heading)",
-                color: "var(--primary-foreground)",
+                color: "var(--footer-foreground)",
                 opacity: 0.8,
               }}
             >
@@ -63,7 +63,7 @@ export function Footer() {
         </div>
         <p
           className="text-xs"
-          style={{ color: "var(--primary-foreground)", opacity: 0.6 }}
+          style={{ color: "var(--footer-foreground)", opacity: 0.6 }}
         >
           {t("copyright")}
         </p>

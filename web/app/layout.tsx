@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Cormorant_Garamond, Crimson_Text } from "next/font/google";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -35,11 +36,13 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${cormorant.variable} ${crimson.variable}`}>
+    <html lang={locale} className={`${cormorant.variable} ${crimson.variable}`} suppressHydrationWarning>
       <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

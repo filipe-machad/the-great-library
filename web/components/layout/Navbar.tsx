@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { Search, Menu, X, BookOpen } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Search, Menu, X, BookOpen, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { href: "/lore", key: "about" },
@@ -13,13 +14,17 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
   const t = useTranslations("nav");
   const tFooter = useTranslations("footer.links");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+
+  const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
   return (
     <nav
       className="border-b sticky top-0 z-50 backdrop-blur-sm"
       style={{
         borderColor: "var(--divider)",
-        backgroundColor: "rgba(248, 245, 240, 0.95)",
+        backgroundColor: "var(--nav-bg)",
+        transition: "background-color 0.25s ease, border-color 0.25s ease",
       }}
     >
       <div className="max-w-5xl mx-auto px-6 py-5">
@@ -58,6 +63,15 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
                 {tFooter(link.key)}
               </Link>
             ))}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="cursor-pointer p-2 transition-colors duration-200 hover:opacity-70"
+              style={{ color: "var(--link-color)" }}
+              aria-label={resolvedTheme === "dark" ? "Modo claro" : "Modo escuro"}
+            >
+              {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             {onSearchOpen && (
               <button
                 onClick={onSearchOpen}
@@ -72,6 +86,15 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
 
           {/* Mobile toggle */}
           <div className="flex md:hidden items-center gap-3">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="cursor-pointer p-2"
+              style={{ color: "var(--link-color)" }}
+              aria-label={resolvedTheme === "dark" ? "Modo claro" : "Modo escuro"}
+            >
+              {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             {onSearchOpen && (
               <button
                 onClick={onSearchOpen}
