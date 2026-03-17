@@ -55,7 +55,7 @@ export default function Home() {
         >
           {t("whatIsTitle")}
         </h2>
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center">
           <p>{t("whatIsP1")}</p>
         </div>
       </section>
