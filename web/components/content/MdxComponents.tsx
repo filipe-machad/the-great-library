@@ -1,5 +1,9 @@
-import type { MDXComponents } from "mdx/types";
+import type { ComponentType } from "react";
 import { AsideNote } from "@/components/narrative/AsideNote";
+
+/** Component map for next-mdx-remote; typed locally to avoid relying on mdx/types resolution in build. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MDXComponentsMap = Record<string, ComponentType<any>>;
 
 function MdxTable({ children }: { children?: React.ReactNode }) {
   return (
@@ -61,7 +65,7 @@ function MdxHr() {
   );
 }
 
-export const MdxComponents: MDXComponents = {
+export const MdxComponents: MDXComponentsMap = {
   table: MdxTable,
   th: MdxTh,
   td: MdxTd,
