@@ -1,0 +1,12 @@
+# Arquivos-fonte brutos (nao subir ao repositorio)
+*.pdf
+*.rtf
+*.txt
+
+# Imagens na raiz (originais — as copias organizadas estao em assets/)
+/egor-poskryakov-*.jpg
+/ryan-smith-*.jpg
+/WhatsApp*.jpeg
+
+# Cursor/IDE
+.cursor/
