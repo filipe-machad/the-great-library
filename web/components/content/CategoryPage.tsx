@@ -36,12 +36,6 @@ export function CategoryPage({
 
         <Divider symbol="✦" />
 
-        {indexContent && (
-          <div className="mb-12 prose-sm" style={{ color: "var(--secondary-ink)" }}>
-            <p>{indexContent.slice(0, 300)}</p>
-          </div>
-        )}
-
         {items.length === 0 ? (
           <p
             className="text-center italic py-12"
@@ -58,10 +52,10 @@ export function CategoryPage({
                 className="block group"
               >
                 <div
-                  className="p-6 transition-all duration-300 hover:shadow-sm"
+                  className="p-6 transition-all duration-300 border-2 hover:shadow-md hover:-translate-y-0.5 hover:border-[var(--accent-gold)]"
                   style={{
                     backgroundColor: "var(--card)",
-                    border: "1px solid var(--border)",
+                    borderColor: "var(--border)",
                   }}
                 >
                   <div className="flex items-baseline justify-between gap-4">
@@ -101,7 +95,7 @@ export function CategoryPage({
                       )}
                     </div>
                     <span
-                      className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0"
+                      className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
                       style={{ color: "var(--accent-gold)" }}
                     >
                       →

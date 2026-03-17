@@ -27,6 +27,9 @@
     "whatIsP2": "Este é um mundo onde histórias têm poder, onde o ato de lembrar molda a própria realidade, e onde cada conto — por mais esquecido que seja — aguarda alguém corajoso o suficiente para lê-lo.",
     "whatIsP3": "O mundo é sustentado por uma energia vital chamada azü — uma força viva que permeia lugares e pessoas. Em certos pontos ela se adensa, tornando-se visível, tátil e manipulável. Ao longo dos séculos, artesãos aprenderam a extrair, purificar e tecer a azü em formas úteis.",
     "beginJourneyTitle": "Inicie Sua Jornada",
+    "indicesTitle": "Índices do Conhecimento",
+    "indicesSubtitle": "Selecione um tomo para iniciar seus estudos.",
+    "readChapter": "LER CAPÍTULO",
     "moreArchives": "Mais arquivos estão sendo catalogados...",
     "cards": {
       "lore": {
@@ -65,7 +68,17 @@
   },
   "footer": {
     "text": "Todo conhecimento aqui contido é mantido por Artêmis, guardiã e narradora da Grande Biblioteca.",
-    "subtitle": "Um repositório de conhecimento, tanto ancestral quanto eterno"
+    "subtitle": "Um repositório de conhecimento, tanto ancestral quanto eterno",
+    "copyright": "© Artêmis. Todo conhecimento resguardado nos reinos conhecidos.",
+    "links": {
+      "home": "INÍCIO",
+      "lore": "LORE",
+      "concepts": "CONCEITOS",
+      "characters": "PERSONAGENS",
+      "world": "MUNDO",
+      "mechanics": "MECÂNICAS",
+      "glossary": "GLOSSÁRIO"
+    }
   },
   "notFound": {
     "title": "Perdido entre as Estantes",

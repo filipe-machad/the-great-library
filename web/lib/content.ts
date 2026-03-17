@@ -105,6 +105,19 @@ export function getCategoryIndex(category: string): {
   return { frontmatter: data as ContentFrontmatter, content };
 }
 
+/**
+ * Strips the first markdown h1 line (# Title) from content to avoid duplication
+ * when the title is already rendered from frontmatter.
+ */
+export function stripFirstH1(content: string): string {
+  const lines = content.split("\n");
+  const firstLine = lines[0]?.trim() ?? "";
+  if (firstLine.startsWith("# ")) {
+    return lines.slice(1).join("\n").trimStart();
+  }
+  return content;
+}
+
 export function getSearchIndex(): Array<{
   slug: string;
   category: string;

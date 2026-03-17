@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import { AsideNote } from "@/components/narrative/AsideNote";
 
 function MdxTable({ children }: { children?: React.ReactNode }) {
   return (
@@ -66,6 +67,7 @@ export const MdxComponents: MDXComponents = {
   td: MdxTd,
   blockquote: MdxBlockquote,
   hr: MdxHr,
+  AsideNote,
   h1: (props) => <h1 style={{ fontFamily: "var(--font-heading)" }} {...props} />,
   h2: (props) => <h2 style={{ fontFamily: "var(--font-heading)" }} {...props} />,
   h3: (props) => <h3 style={{ fontFamily: "var(--font-heading)" }} {...props} />,

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, BookOpen } from "lucide-react";
 
 const navLinks = [
   { href: "/lore", key: "lore" },
@@ -28,12 +28,17 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
     >
       <div className="max-w-5xl mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group">
+          <Link href="/" className="group flex items-center gap-2">
+            <BookOpen
+              size={22}
+              style={{ color: "var(--accent-gold)" }}
+              className="flex-shrink-0"
+            />
             <h4
               className="transition-colors duration-200"
               style={{
                 fontFamily: "var(--font-heading)",
-                color: "var(--foreground)",
+                color: "var(--accent-gold)",
                 fontSize: "1.25rem",
                 marginBottom: 0,
               }}
@@ -48,7 +53,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm transition-colors duration-200"
+                className="relative text-sm transition-colors duration-200 hover:text-[var(--accent-gold)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--accent-gold)] after:transition-all after:duration-200 hover:after:w-full"
                 style={{
                   fontFamily: "var(--font-heading)",
                   color: "var(--link-color)",

@@ -8,6 +8,8 @@ import { Footer } from "./Footer";
 interface PageLayoutProps {
   children: React.ReactNode;
   showBackLink?: boolean;
+  backHref?: string;
+  backLabel?: string;
   onSearchOpen?: () => void;
 }
 
@@ -39,6 +41,9 @@ export function PageLayout({
         {showBackLink && (
           <Link
             href="/"
+        {showBackLink && (
+          <Link
+            href={backHref}
             className="inline-flex items-center gap-2 mb-12 group"
             style={{ color: "var(--link-color)" }}
           >
@@ -49,10 +54,7 @@ export function PageLayout({
               className="text-sm"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              {t("returnToLibrary")}
-            </span>
-          </Link>
-        )}
+              {resolvedBackLabel}
         {children}
       </main>
 

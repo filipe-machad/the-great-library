@@ -61,6 +61,28 @@ A regra fundamental deste universo: **artefatos não criam poderes**. Eles funci
 
 ---
 
+## Aplicação Web (Next.js)
+
+A interface web está em `web/`. Para rodar localmente:
+
+```bash
+cd web && npm install && npm run dev
+```
+
+Acesse http://localhost:3000
+
+### Deploy na Vercel
+
+O app Next.js está no subdiretório `web/`. Para o deploy funcionar:
+
+1. No **Vercel Dashboard** → seu projeto → **Settings** → **General**
+2. Em **Root Directory**, clique em **Edit** e defina: `web`
+3. Salve e faça um novo deploy
+
+Sem isso, a Vercel não encontra o `package.json` com Next.js e o build falha.
+
+---
+
 ## Publicação
 
 O repositório gera dois sites via MkDocs:

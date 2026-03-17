@@ -28,7 +28,7 @@ export function ExpandableSection({
         <div className="flex items-baseline justify-between gap-4">
           <div>
             <h3
-              className="mb-1 transition-colors duration-200"
+              className="mb-1 transition-colors duration-200 group-hover:text-[var(--accent-gold)]"
               style={{
                 fontFamily: "var(--font-heading)",
                 color: "var(--foreground)",

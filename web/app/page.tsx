@@ -1,6 +1,16 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import {
+  Scroll,
+  Scale,
+  Users,
+  Map,
+  Sparkles,
+  Gem,
+  Cog,
+  BookMarked,
+} from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ChapterCard } from "@/components/narrative/ChapterCard";
 import { Divider } from "@/components/narrative/Divider";
@@ -63,64 +73,69 @@ export default function Home() {
 
       <Divider />
 
-      {/* Begin Your Journey */}
+      {/* Índices do Conhecimento */}
       <section>
         <h2
-          className="text-center mb-12"
+          className="text-center mb-3"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          {t("beginJourneyTitle")}
+          {t("indicesTitle")}
         </h2>
+        <p
+          className="text-center mb-12"
+          style={{ color: "var(--secondary-ink)" }}
+        >
+          {t("indicesSubtitle")}
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ChapterCard
             title={t("cards.lore.title")}
             description={t("cards.lore.description")}
             href="/lore"
+            icon={Scroll}
           />
           <ChapterCard
             title={t("cards.concepts.title")}
             description={t("cards.concepts.description")}
             href="/conceitos"
+            icon={Scale}
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <ChapterCard
             title={t("cards.characters.title")}
             description={t("cards.characters.description")}
             href="/personagens"
+            icon={Users}
           />
           <ChapterCard
             title={t("cards.world.title")}
             description={t("cards.world.description")}
             href="/mundo"
+            icon={Map}
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <ChapterCard
             title={t("cards.azu.title")}
             description={t("cards.azu.description")}
             href="/azu"
+            icon={Sparkles}
           />
           <ChapterCard
             title={t("cards.artifacts.title")}
             description={t("cards.artifacts.description")}
             href="/artefatos"
+            icon={Gem}
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ChapterCard
             title={t("cards.mechanics.title")}
             description={t("cards.mechanics.description")}
             href="/mecanicas"
+            icon={Cog}
           />
           <ChapterCard
             title={t("cards.glossary.title")}
             description={t("cards.glossary.description")}
             href="/glossario"
+            icon={BookMarked}
           />
         </div>
       </section>
