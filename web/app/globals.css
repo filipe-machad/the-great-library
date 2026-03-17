@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Crimson Text", serif;
+  --font-size: 18px;
+
+  --background: #f8f5f0;
+  --foreground: #1a1a1a;
+  --secondary-ink: #5c5a55;
+
+  --accent-gold: #b8a07e;
+  --accent-blue-gray: #7b8a9c;
+
+  --divider: rgba(92, 90, 85, 0.2);
+  --border: rgba(92, 90, 85, 0.15);
+
+  --link-color: #6b7c8e;
+  --link-hover: #4a5968;
+
+  --gradient-subtle: radial-gradient(
+    circle at top,
+    rgba(248, 245, 240, 1) 0%,
+    rgba(242, 237, 228, 1) 100%
+  );
+
+  --card: #fdfcfa;
+  --card-foreground: #1a1a1a;
+  --popover: #fdfcfa;
+  --popover-foreground: #1a1a1a;
+  --primary: #1a1a1a;
+  --primary-foreground: #f8f5f0;
+  --secondary: #5c5a55;
+  --secondary-foreground: #f8f5f0;
+  --muted: #ebe8e1;
+  --muted-foreground: #5c5a55;
+  --accent: #b8a07e;
+  --accent-foreground: #1a1a1a;
+  --destructive: #8b4545;
+  --destructive-foreground: #f8f5f0;
+  --input: transparent;
+  --input-background: #fdfcfa;
+  --ring: rgba(92, 90, 85, 0.3);
+  --radius: 0.25rem;
+
+  --sidebar: #f2ede4;
+  --sidebar-foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: var(--font-size);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin-bottom: 0.875rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--link-hover);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}

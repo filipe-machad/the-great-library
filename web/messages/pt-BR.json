@@ -1,0 +1,94 @@
+{
+  "site": {
+    "title": "A Grande Biblioteca",
+    "description": "Onde a memória vive eterna e o esquecido encontra voz"
+  },
+  "nav": {
+    "home": "Início",
+    "lore": "Lore",
+    "concepts": "Conceitos",
+    "characters": "Personagens",
+    "world": "O Mundo",
+    "mechanics": "Mecânicas",
+    "artifacts": "Artefatos",
+    "glossary": "Glossário",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar nos arquivos da Biblioteca...",
+    "returnToLibrary": "Retornar à Biblioteca",
+    "explore": "Explorar",
+    "menu": "Menu"
+  },
+  "home": {
+    "heroSubtitle": "Onde a memória vive eterna e o esquecido encontra voz",
+    "epigraph": "Viver é tecer. Cessar é abrir espaço. Entre os dois, tudo acontece.",
+    "introText": "Dentro destes arquivos residem as crônicas de um mundo tanto perdido quanto lembrado — um lugar onde a fronteira entre mito e história há muito se dissolveu, onde cada palavra escrita carrega o peso da verdade e o sussurro de sonhos.",
+    "whatIsTitle": "O que é este mundo?",
+    "whatIsP1": "A Grande Biblioteca existe além do tempo, um monumento ao conhecimento que antecede reinos e sobrevive a impérios. É ao mesmo tempo santuário e prisão, arquivo e oráculo. Aqueles que entram buscando respostas frequentemente descobrem apenas questões mais profundas.",
+    "whatIsP2": "Este é um mundo onde histórias têm poder, onde o ato de lembrar molda a própria realidade, e onde cada conto — por mais esquecido que seja — aguarda alguém corajoso o suficiente para lê-lo.",
+    "whatIsP3": "O mundo é sustentado por uma energia vital chamada azü — uma força viva que permeia lugares e pessoas. Em certos pontos ela se adensa, tornando-se visível, tátil e manipulável. Ao longo dos séculos, artesãos aprenderam a extrair, purificar e tecer a azü em formas úteis.",
+    "beginJourneyTitle": "Inicie Sua Jornada",
+    "moreArchives": "Mais arquivos estão sendo catalogados...",
+    "cards": {
+      "lore": {
+        "title": "Lore",
+        "description": "As verdades fundacionais deste mundo — suas origens, sua natureza e as forças que o moldaram no que se tornou."
+      },
+      "concepts": {
+        "title": "Conceitos",
+        "description": "Os princípios metafísicos que governam a existência: memória, verdade, narrativa e as mecânicas de uma realidade construída sobre histórias."
+      },
+      "characters": {
+        "title": "Personagens",
+        "description": "Os Bibliotecários, os Buscadores, os Perdidos e outros que habitam dentro ou além destas salas sagradas."
+      },
+      "world": {
+        "title": "O Mundo",
+        "description": "Locais, sítios sagrados, zonas de convergência e a geografia de um mundo permeado pela azü."
+      },
+      "azu": {
+        "title": "Azü",
+        "description": "A energia vital que sustenta o mundo — guia sensorial e mecânicas fundamentais."
+      },
+      "artifacts": {
+        "title": "Artefatos",
+        "description": "Arins e itens imbuídos — catalisadores da azü interior do portador."
+      },
+      "mechanics": {
+        "title": "Mecânicas",
+        "description": "O sistema de jogo, regras de criação de personagem e efeitos de itens."
+      },
+      "glossary": {
+        "title": "Glossário",
+        "description": "Termos e definições do cenário narrativo."
+      }
+    }
+  },
+  "footer": {
+    "text": "Todo conhecimento aqui contido é mantido por Artêmis, guardiã e narradora da Grande Biblioteca.",
+    "subtitle": "Um repositório de conhecimento, tanto ancestral quanto eterno"
+  },
+  "notFound": {
+    "title": "Perdido entre as Estantes",
+    "subtitle": "Esta seção da Biblioteca ainda não foi catalogada",
+    "text": "O caminho que você buscou não leva a lugar algum — ou talvez leve a algum lugar que ainda não foi escrito. Mesmo em um repositório de todo conhecimento, alguns corredores permanecem inexplorados.",
+    "return": "Retornar ao Salão de Entrada"
+  },
+  "search": {
+    "title": "Busca Alquímica",
+    "empty": "Os arquivos não revelaram nada para este termo... tente outra busca.",
+    "placeholder": "Digite um termo para buscar nos arquivos...",
+    "categories": {
+      "world": "Mundo",
+      "mechanics": "Mecânicas",
+      "characters": "Personagens",
+      "artifacts": "Artefatos",
+      "cosmology": "Cosmologia",
+      "religion": "Religião",
+      "factions": "Facções",
+      "enigmas": "Enigmas",
+      "glossary": "Glossário",
+      "azu": "Azü",
+      "timelines": "Cronologias"
+    }
+  }
+}
