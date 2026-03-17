@@ -32,7 +32,7 @@ phenomena: ["pulso luminoso", "distorção de luz e som", "veios verde-fantasma"
 
 Uma Zona de Convergência é qualquer ponto geográfico onde a azü se acumula em densidade superior à do ambiente comum. Nesses lugares, a energia vital não está apenas *presente* — ela **pulsa**, como um segundo coração enterrado na terra. O ar muda de qualidade; a luz se comporta de maneiras sutilmente incorretas; o corpo percebe, antes da mente, que pisou em terreno diferente.
 
-Nem todas as zonas são iguais. Algumas são discretas — um arrepio na pele, um silêncio mais fundo. Outras são avassaladoras: o chão vibra, a visão oscila, e até os pensamentos parecem ganhar peso e textura. A intensidade depende da profundidade da fonte, da configuração geológica do terreno e, em certos casos, da presença de estruturas construídas com intenção de concentrar ou direcionar o fluxo.
+Nem todas as zonas são iguais. Algumas são discretas — um arrepio na pele, um silêncio mais fundo. Outras são avassaladoras: o chão vibra, a visão oscila, e até os pensamentos parecem ganhar peso e textura. A intensidade depende da profundidade da fonte, da configuração geológica do terreno e, em certos casos, da presença de estruturas construídas para concentrar ou direcionar o fluxo.
 
 ---
 
@@ -101,7 +101,7 @@ Essas linhas de luz não são estáveis — movem-se como raízes que procurasse
 
 A azü em zonas de convergência não é inerte. Ela **responde**.
 
-- **Intenção**: a azü reage à direção consciente do pensamento. Uma mente focada pode sentir o fluxo com mais clareza; uma mente dispersa percebe menos — ou percebe de forma caótica.
+- **Foco**: a azü reage à direção consciente do pensamento. Uma mente focada pode sentir o fluxo com mais clareza; uma mente dispersa percebe menos — ou percebe de forma caótica.
 - **Estado emocional**: emoções intensas — medo, devoção, raiva, êxtase — alteram a maneira como a azü se manifesta ao redor do indivíduo. Não é que ela obedeça ao sentimento; é que ela o *espelha*, como superfície de água perturbada por uma pedra.
 - **Disciplina espiritual**: praticantes treinados — tecelões de azü, sacerdotes, guardiões de santuários — desenvolvem ao longo de anos a capacidade de interagir com a azü de forma mais estável e precisa, como músicos que aprendem a tirar notas limpas de um instrumento que, nas mãos de um leigo, só produz ruído.
 
@@ -111,7 +111,7 @@ A azü em zonas de convergência não é inerte. Ela **responde**.
 
 A azü não é hostil, mas também não é inofensiva.
 
-Em zonas de alta pureza e densidade, a energia pode exercer **pressão espiritual** sobre quem permanece tempo demais ou se expõe sem preparo. Os efeitos são progressivos:
+Em zonas de alta pureza e densidade, a energia pode exercer **exigência sobre o corpo e a mente** de quem permanece tempo demais ou se expõe sem preparo. Os efeitos são progressivos:
 
 | Estágio | Sinais |
 |---------|--------|
@@ -120,7 +120,7 @@ Em zonas de alta pureza e densidade, a energia pode exercer **pressão espiritua
 | Grave | Sensação de peso no ar, taquicardia, confusão entre memória e presente |
 | Crítico | Risco de estilhaçamento da consciência — perda de coesão interna |
 
-A pressão espiritual não é uma punição. É uma consequência — o corpo e a mente têm limites, e a azü concentrada não se ajusta a eles. Quem entra numa zona de convergência densa deve fazê-lo com respeito, preparo e, de preferência, com alguém que conheça o caminho de volta.
+Essa exigência não é uma punição. É uma consequência — o corpo e a mente têm limites, e a azü concentrada não se ajusta a eles. Quem entra numa zona de convergência densa deve fazê-lo com respeito, preparo e, de preferência, com alguém que conheça o caminho de volta.
 
 ---
 

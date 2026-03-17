@@ -6,7 +6,7 @@ status: canon
 visibility: public
 version: 1.0.0
 updated: 2026-03-17
-tags: [mechanic]
+tags: ["mecânica"]
 related:
   - TGL-NPC-0001
   - TGL-AZU-0002
@@ -20,7 +20,7 @@ impact: ["ambientação", "economia", "criação de artefatos"]
 
 ## Quem São
 
-Artesãos são indivíduos treinados para trabalhar a azü por meio de técnica manual, rituais de foco, respiração e intenção. A prática é técnica + espiritual: mão firme, espírito firme.
+Artesãos são indivíduos treinados para trabalhar a azü por meio de técnica manual, rituais de foco e respiração. A prática é técnica + espiritual: mão firme, espírito firme.
 
 ---
 
@@ -37,7 +37,7 @@ Artesãos são indivíduos treinados para trabalhar a azü por meio de técnica 
 - Oficinas vão de bancadas humildes a forjas rituais.
 - Disciplina e caráter importam tanto quanto técnica.
 - Guildas e linhagens preservam segredos de tecelagem e nós tradicionais.
-- A intenção do artesão deixa uma assinatura sutil em cada peça.
+- O foco do artesão deixa uma assinatura sutil em cada peça.
 
 ---
 
@@ -45,9 +45,9 @@ Artesãos são indivíduos treinados para trabalhar a azü por meio de técnica 
 
 1. A azü é vida; não a rape, conduza-a.
 2. Orbes são espelhos; limpam-se antes do reflexo.
-3. Todo nó precisa de intenção.
+3. Todo nó precisa de direção consciente.
 4. Nenhum artefato é neutro: tece-se também caráter.
-5. Quanto maior a pureza, maior a pressão espiritual.
+5. Quanto maior a pureza, maior a exigência sobre quem a manipula.
 6. Duas vontades não dividem o mesmo núcleo sem custo.
 7. Arin não é feito: ele nasce do inexprimível.
 

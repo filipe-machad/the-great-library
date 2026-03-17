@@ -125,7 +125,7 @@ export default function CharactersPage() {
           <p>
             Encontrar o Colecionador é raro e perturbador. Testemunhas descrevem uma
             presença mais que uma pessoa — uma ausência móvel, um buraco no mundo em
-            forma de intenção. Após tais encontros, frequentemente descobrem que não
+            forma de vontade pura. Após tais encontros, frequentemente descobrem que não
             conseguem mais lembrar certos detalhes sobre suas próprias vidas. O
             Colecionador, ao que parece, não discrimina entre memórias escritas e
             memórias vividas.

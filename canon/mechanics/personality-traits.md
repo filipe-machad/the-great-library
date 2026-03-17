@@ -6,12 +6,12 @@ status: canon
 visibility: public
 version: 1.0.0
 updated: 2026-03-17
-tags: [mechanic]
+tags: ["mecânica"]
 related:
   - TGL-MEC-0002
   - TGL-MEC-0003
   - TGL-MEC-0005
-summary: "Os 21 traços de personalidade disponíveis para personagens, com suas amplificações e efeitos colaterais."
+summary: "Os 21 traços de personalidade disponíveis para personagens, com suas amplificações e custos."
 sources: []
 category: "núcleo"
 impact: ["criação de personagem", "progressão", "combate"]
@@ -25,7 +25,7 @@ impact: ["criação de personagem", "progressão", "combate"]
 
 ## Tabela de Traços
 
-| Traço | Amplificação | Efeito Colateral |
+| Traço | Amplificação | Custo |
 |-------|-------------|-----------------|
 | Ansioso | **Salto de antecipação:** em vislumbre de perigo, passos parecem adiantar 1-2 segundos (deslocamento curto, reposicionamento) | Taquicardia, fala acelerada |
 | Reservado | **Ofuscamento:** perde relevância perceptiva por instantes (olhares "escorregam" de você) | Sensação de vazio social |

@@ -24,17 +24,17 @@ const categoryLabels: Record<string, string> = {
 };
 
 const categoryPaths: Record<string, string> = {
-  world: "/mundo",
-  azu: "/azu",
-  cosmology: "/mundo",
-  religion: "/mundo",
-  artifacts: "/artefatos",
-  factions: "/mundo",
-  npcs: "/mundo",
-  mechanics: "/mecanicas",
-  enigmas: "/mundo",
-  timelines: "/mundo",
-  glossary: "/glossario",
+  world: "/azu/mundo",
+  azu: "/azu/energia",
+  cosmology: "/azu/cosmologia",
+  religion: "/azu/religiao",
+  artifacts: "/azu/artefatos",
+  factions: "/azu/faccoes",
+  npcs: "/azu/npcs",
+  mechanics: "/azu/mecanicas",
+  enigmas: "/azu/enigmas",
+  timelines: "/azu/cronologias",
+  glossary: "/azu/glossario",
 };
 
 export function getCategoryLabel(category: string): string {

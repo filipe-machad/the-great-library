@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Divider } from "@/components/narrative/Divider";
 import type { ContentItem } from "@/lib/content";
@@ -11,6 +12,8 @@ interface CategoryPageProps {
   items: ContentItem[];
   indexContent?: string;
   basePath: string;
+  backHref?: string;
+  backLabel?: string;
 }
 
 export function CategoryPage({
@@ -19,9 +22,13 @@ export function CategoryPage({
   items,
   indexContent,
   basePath,
+  backHref,
+  backLabel,
 }: CategoryPageProps) {
+  const t = useTranslations("content");
+
   return (
-    <PageLayout showBackLink>
+    <PageLayout showBackLink backHref={backHref} backLabel={backLabel}>
       <article>
         <h1 className="mb-6" style={{ fontFamily: "var(--font-heading)" }}>
           {title}
@@ -41,7 +48,7 @@ export function CategoryPage({
             className="text-center italic py-12"
             style={{ color: "var(--secondary-ink)" }}
           >
-            Artêmis ainda está catalogando esta seção...
+            {t("sectionEmpty")}
           </p>
         ) : (
           <div className="space-y-4">

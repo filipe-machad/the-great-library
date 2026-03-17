@@ -6,7 +6,7 @@ status: canon
 visibility: public
 version: 1.0.0
 updated: 2026-03-17
-tags: [mechanic]
+tags: ["mecânica"]
 related:
   - TGL-MEC-0001
   - TGL-MEC-0002
@@ -20,7 +20,7 @@ impact: ["combate", "progressão"]
 
 Cada arma ou equipamento manifesta o poder-base do portador de forma diferente, adaptando-se ao contexto do item. Abaixo estão os desdobramentos conhecidos para três perfis de personalidade.
 
-> **Nota:** POR ENQUANTO, IGNORAR OS EFEITOS COLATERAIS durante o jogo — estão listados apenas como referência de design.
+> **Nota:** POR ENQUANTO, IGNORAR OS CUSTOS durante o jogo — estão listados apenas como referência de design.
 
 ---
 
@@ -28,7 +28,7 @@ Cada arma ou equipamento manifesta o poder-base do portador de forma diferente, 
 
 *Contornos borram; a atenção alheia escorrega de você por um instante.*
 
-| Arma/Item | Efeito | Colateral |
+| Arma/Item | Efeito | Custo |
 |-----------|--------|-----------|
 | Espada | O traço do aço se perde no canto do olho; a estocada surge de um vazio momentâneo | Voz falha ao tentar falar logo depois |
 | Arco e Flecha | A mira "some" um palmo antes do disparo; a seta sai de um ponto que ninguém fixou | Mãos frias, respiração presa |
@@ -46,7 +46,7 @@ Cada arma ou equipamento manifesta o poder-base do portador de forma diferente, 
 
 *Aceleração curta e brusca; um passo vira três antes que a cabeça alcance.*
 
-| Arma/Item | Efeito | Colateral |
+| Arma/Item | Efeito | Custo |
 |-----------|--------|-----------|
 | Espada | Fende o espaço com avanço súbito; a lâmina chega antes do contra-golpe nascer | Tontura breve após a investida |
 | Arco e Flecha | Solta a corda no exato instante em que surge brecha; a seta "furta" o tempo do alvo | Pulso dolorido, respiração acelerada |
@@ -64,9 +64,9 @@ Cada arma ou equipamento manifesta o poder-base do portador de forma diferente, 
 
 *Sente o clima e o afina; encontra a palavra ou gesto que amarra o grupo.*
 
-| Arma/Item | Efeito | Colateral |
+| Arma/Item | Efeito | Custo |
 |-----------|--------|-----------|
-| Espada | O corte não é só aço — é intenção clara; aliados leem o movimento e entram juntos | Exaustão emocional após coordenar a troca |
+| Espada | O corte não é só aço — é direção clara; aliados leem o movimento e entram juntos | Desgaste emocional após coordenar a troca |
 | Arco e Flecha | A flecha traz recado silencioso; distrai o ódio, abre espaço para recuo ou diálogo | Peso no peito, olhar úmido por um instante |
 | Martelo | Batida curta no solo unifica passos; o grupo respira no mesmo tempo | Dor surda nos ombros, como se carregasse parte dos outros |
 | Espada Grande | O arco largo vira farol; amigos se alinham atrás e ganham coragem por um momento | Queda brusca de energia assim que a pressão cessa |

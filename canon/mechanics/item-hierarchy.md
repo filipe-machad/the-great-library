@@ -6,7 +6,7 @@ status: canon
 visibility: public
 version: 1.0.0
 updated: 2026-03-17
-tags: [mechanic]
+tags: ["mecânica"]
 related:
   - TGL-MEC-0003
   - TGL-MEC-0001

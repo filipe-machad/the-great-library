@@ -6,16 +6,12 @@ import { useState } from "react";
 import { Search, Menu, X, BookOpen } from "lucide-react";
 
 const navLinks = [
-  { href: "/lore", key: "lore" },
-  { href: "/conceitos", key: "concepts" },
-  { href: "/personagens", key: "characters" },
-  { href: "/mundo", key: "world" },
-  { href: "/mecanicas", key: "mechanics" },
-  { href: "/glossario", key: "glossary" },
+  { href: "/lore", key: "about" },
 ] as const;
 
 export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
   const t = useTranslations("nav");
+  const tFooter = useTranslations("footer.links");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -47,19 +43,19 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
             </h4>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop: Sobre a Biblioteca + search */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative text-sm transition-colors duration-200 hover:text-[var(--accent-gold)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--accent-gold)] after:transition-all after:duration-200 hover:after:w-full"
+                className="relative font-medium text-sm transition-colors duration-200 hover:text-[var(--accent-gold)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[var(--accent-gold)] after:transition-all after:duration-200 hover:after:w-full"
                 style={{
                   fontFamily: "var(--font-heading)",
                   color: "var(--link-color)",
                 }}
               >
-                {t(link.key)}
+                {tFooter(link.key)}
               </Link>
             ))}
             {onSearchOpen && (
@@ -111,7 +107,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
                   color: "var(--link-color)",
                 }}
               >
-                {t(link.key)}
+                {tFooter(link.key)}
               </Link>
             ))}
           </div>

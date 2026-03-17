@@ -1,16 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import {
-  Scroll,
-  Scale,
-  Users,
-  Map,
-  Sparkles,
-  Gem,
-  Cog,
-  BookMarked,
-} from "lucide-react";
+import { Sparkles, Puzzle, Wine } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ChapterCard } from "@/components/narrative/ChapterCard";
 import { Divider } from "@/components/narrative/Divider";
@@ -54,88 +45,56 @@ export default function Home() {
         </div>
       </div>
 
-      <Divider symbol="✦" />
+      <Divider symbol="✦" bounce />
 
-      {/* What is this world? */}
+      {/* O que é A Grande Biblioteca? */}
       <section className="mb-24">
         <h2
-          className="text-center mb-12"
+          className="text-center mb-12 font-medium"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {t("whatIsTitle")}
         </h2>
-        <div className="max-w-2xl mx-auto space-y-6">
+        <div className="max-w-2xl mx-auto">
           <p>{t("whatIsP1")}</p>
-          <p>{t("whatIsP2")}</p>
-          <p>{t("whatIsP3")}</p>
         </div>
       </section>
 
-      <Divider />
+      <Divider bounce />
 
-      {/* Índices do Conhecimento */}
+      {/* Mundos */}
       <section>
         <h2
           className="text-center mb-3"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          {t("indicesTitle")}
+          {t("worldsTitle")}
         </h2>
         <p
           className="text-center mb-12"
           style={{ color: "var(--secondary-ink)" }}
         >
-          {t("indicesSubtitle")}
+          {t("worldsSubtitle")}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ChapterCard
-            title={t("cards.lore.title")}
-            description={t("cards.lore.description")}
-            href="/lore"
-            icon={Scroll}
-          />
-          <ChapterCard
-            title={t("cards.concepts.title")}
-            description={t("cards.concepts.description")}
-            href="/conceitos"
-            icon={Scale}
-          />
-          <ChapterCard
-            title={t("cards.characters.title")}
-            description={t("cards.characters.description")}
-            href="/personagens"
-            icon={Users}
-          />
-          <ChapterCard
-            title={t("cards.world.title")}
-            description={t("cards.world.description")}
-            href="/mundo"
-            icon={Map}
-          />
+        <div className="grid grid-cols-2 gap-6">
           <ChapterCard
             title={t("cards.azu.title")}
             description={t("cards.azu.description")}
             href="/azu"
             icon={Sparkles}
           />
+          {/* <ChapterCard
+            title={t("cards.fragmentados.title")}
+            description={t("cards.fragmentados.description")}
+            href="/fragmentados"
+            icon={Puzzle}
+          /> */}
           <ChapterCard
-            title={t("cards.artifacts.title")}
-            description={t("cards.artifacts.description")}
-            href="/artefatos"
-            icon={Gem}
-          />
-          <ChapterCard
-            title={t("cards.mechanics.title")}
-            description={t("cards.mechanics.description")}
-            href="/mecanicas"
-            icon={Cog}
-          />
-          <ChapterCard
-            title={t("cards.glossary.title")}
-            description={t("cards.glossary.description")}
-            href="/glossario"
-            icon={BookMarked}
+            title={t("cards.barman.title")}
+            description={t("cards.barman.description")}
+            href="/o-barman-atemporal"
+            icon={Wine}
           />
         </div>
       </section>

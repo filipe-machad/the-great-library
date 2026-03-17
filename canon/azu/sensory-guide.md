@@ -88,7 +88,7 @@ Quando personagens entram em uma **Zona de Convergência** densa, use combinaç�
 
 ---
 
-## Sinais de Pressão Espiritual (uso excessivo de artefatos)
+## Sinais de Sobrecarga (uso excessivo de artefatos)
 
 | Estágio | Sinais |
 |---------|--------|

@@ -60,13 +60,13 @@ Atribuídas ao Artesão Mestre, estas são as sete leis fundamentais que todo ar
 
 ### I. A azü é vida; não a rape, conduza-a.
 
-A essência vital não é matéria inerte. Não pode ser forçada, quebrada ou dominada. Deve ser guiada com intenção e respeito, como se conduz água por um canal — não como se quebra uma pedra com um martelo.
+A essência vital não é matéria inerte. Não pode ser forçada, quebrada ou dominada. Deve ser guiada com foco e respeito, como se conduz água por um canal — não como se quebra uma pedra com um martelo.
 
 ### II. Orbes são espelhos; limpam-se antes do reflexo.
 
 O orbe reflete o estado interior do artesão. Antes de moldar qualquer coisa, o artesão deve moldar a si mesmo. Impureza no espírito gera impureza no artefato.
 
-### III. Todo nó precisa de intenção.
+### III. Todo nó precisa de direção consciente.
 
 Cada ponto de entrelaçamento na tecelagem da azü exige um propósito claro. Nós feitos por acidente, distração ou pressa se desfazem — ou pior, se torcem.
 
@@ -74,13 +74,13 @@ Cada ponto de entrelaçamento na tecelagem da azü exige um propósito claro. N�
 
 Tudo o que é moldado carrega algo do artesão. Não existe objeto puro. A personalidade, os medos, as virtudes e os vícios de quem tece se infiltram na obra, queira o artesão ou não.
 
-### V. Quanto maior a pureza, maior a pressão espiritual.
+### V. Quanto maior a pureza, maior a exigência sobre quem a manipula.
 
 Buscar perfeição na moldagem cobra um preço proporcional. Artefatos de altíssima qualidade exigem um nível de foco e entrega que poucos suportam sem consequências.
 
 ### VI. Duas vontades não dividem o mesmo núcleo sem custo.
 
-Quando dois artesãos tentam moldar o mesmo artefato, ou quando duas intenções conflitantes coexistem em uma obra, há sempre um custo — instabilidade, fragilidade ou distorção.
+Quando dois artesãos tentam moldar o mesmo artefato, ou quando duas vontades conflitantes coexistem em uma obra, há sempre um custo — instabilidade, fragilidade ou distorção.
 
 ### VII. Arin não é feito: ele nasce do inexprimível.
 

@@ -1,6 +1,15 @@
-export function Divider({ symbol }: { symbol?: string }) {
+interface DividerProps {
+  symbol?: string;
+  bounce?: boolean;
+}
+
+export function Divider({ symbol, bounce = false }: DividerProps) {
   return (
-    <div className="flex items-center justify-center my-16">
+    <div
+      className={`flex items-center justify-center my-16${
+        bounce ? " animate-bounce" : ""
+      }`}
+    >
       {symbol ? (
         <span className="text-2xl" style={{ color: "var(--accent-gold)" }}>
           {symbol}
