@@ -21,7 +21,7 @@ O tom canônico deste universo é o **Assombro Sereno**:
 
 ### O que fazer
 
-- Descrever a azü com **sensações físicas reais**: frescor mineral na pele, sabor metálico sutil, escorrer tátil em convergências densas. Consulte sempre o [`sensory_guide.md`](../world/sensory_guide.md).
+- Descrever a azü com **sensações físicas reais**: frescor mineral na pele, sabor metálico sutil, escorrer tátil em convergências densas. Consulte sempre o [Guia Sensorial](../canon/azu/sensory-guide.md).
 - Usar linguagem sensorial densa: texturas, temperaturas, sons, cheiros.
 - Manter o mistério — sugerir mais do que explicar.
 - Respeitar o silêncio como elemento narrativo (pausas, ausências, o não-dito).
@@ -64,10 +64,33 @@ Na dúvida, **não revele**. O mistério é mais valioso que a explicação.
 
 ---
 
+## Estrutura do Canon
+
+Todo conteúdo canônico vive em `canon/` com frontmatter YAML obrigatório:
+
+```yaml
+---
+id: TGL-{TIPO}-{NÚMERO}
+title: "Título"
+type: location | site | convergence | artifact | arin | faction | npc | mechanic | enigma | cosmology | religion | glossary
+status: draft | review | canon | deprecated
+visibility: public | gm
+version: X.Y.Z
+updated: YYYY-MM-DD
+tags: []
+related: []
+summary: "Resumo em 1-2 linhas."
+---
+```
+
+---
+
 ## Referências Rápidas
 
-- Tom e estética: ver [`sensory_guide.md`](../world/sensory_guide.md)
-- Mecânicas de azü: ver [`mechanics/azu.md`](../mechanics/azu.md)
-- Traços e amplificações: ver [`mechanics/personality_traits.md`](../mechanics/personality_traits.md)
-- Hierarquia de itens: ver [`mechanics/item_hierarchy.md`](../mechanics/item_hierarchy.md)
-- Cosmologia (lore profunda): ver [`lore/cosmology.md`](../lore/cosmology.md)
+- Tom e estética: [Guia Sensorial](../canon/azu/sensory-guide.md)
+- Mecânicas de azü: [Azü](../canon/azu/azu.md)
+- Traços e amplificações: [Traços de Personalidade](../canon/mechanics/personality-traits.md)
+- Hierarquia de itens: [Hierarquia de Itens](../canon/mechanics/item-hierarchy.md)
+- Cosmologia (lore profunda): [Cosmologia](../canon/cosmology/cosmology.md)
+- Guia de estilo: [Style Guide](style_guide.md)
+- Taxonomia de tags: [Taxonomia](taxonomy.md)

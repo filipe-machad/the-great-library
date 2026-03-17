@@ -1,0 +1,9 @@
+INHERIT: mkdocs.yml
+
+site_name: "The Great Library — Versão GM"
+site_description: "Universo narrativo de fantasia medieval — canon completo (GM)"
+site_dir: site/gm
+
+extra:
+  is_gm_build: true
+  version: "1.0.0"

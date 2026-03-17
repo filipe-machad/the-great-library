@@ -2,6 +2,7 @@
 *.pdf
 *.rtf
 *.txt
+!requirements.txt
 
 # Imagens na raiz (originais — as copias organizadas estao em assets/)
 /egor-poskryakov-*.jpg
@@ -10,3 +11,16 @@
 
 # Cursor/IDE
 .cursor/
+
+# MkDocs build output
+site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
