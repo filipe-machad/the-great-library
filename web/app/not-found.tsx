@@ -25,7 +25,7 @@ export default function NotFoundPage() {
           className="inline-flex items-center gap-2 group"
           style={{ color: "var(--link-color)" }}
         >
-          <span className="text-sm transition-transform duration-200 group-hover:-translate-x-1">
+          <span className="text-sm pt-[3px] transition-transform duration-200 group-hover:-translate-x-1">
             ←
           </span>
           <span style={{ fontFamily: "var(--font-heading)" }}>

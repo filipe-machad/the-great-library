@@ -17,7 +17,7 @@ export function ChapterCard({ title, description, href, icon: Icon }: ChapterCar
   return (
     <Link href={href} className="block group">
       <div
-        className="relative p-8 h-full overflow-hidden transition-all duration-300 border-2 border-[var(--border)] hover:border-[var(--accent-gold)] flex flex-col justify-between before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
+        className="relative p-8 h-full overflow-hidden transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] flex flex-col justify-between before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
         style={{
           backgroundColor: "var(--card)",
         }}

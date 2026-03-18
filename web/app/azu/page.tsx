@@ -54,8 +54,7 @@ export default function AzuHubPage() {
           Índices
         </h2>
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
-          style={{ gridAutoRows: "12rem" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch [grid-auto-rows:8.75rem] md:[grid-auto-rows:12rem]"
         >
           {AZU_CATEGORIES.map((cat) => {
             const Icon = categoryIcons[cat.segment] ?? BookMarked;
@@ -66,7 +65,7 @@ export default function AzuHubPage() {
                 className="block group h-full"
               >
                 <div
-                  className="relative h-full pt-6 pb-6 pl-6 pr-5 overflow-hidden flex flex-col transition-all duration-300 border-2 border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
+                  className="relative h-full pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
                   }}

@@ -50,6 +50,10 @@
   --footer-bg: #2a2620;
   --footer-border: rgba(248, 245, 240, 0.15);
   --footer-foreground: #f8f5f0;
+
+  --neo-bg: var(--nav-bg);
+  --neo-shadow: rgba(26, 26, 26, 0.15);
+  --neo-highlight: rgba(255, 255, 255, 0.8);
 }
 
 .dark {
@@ -98,6 +102,10 @@
   --footer-bg: #141210;
   --footer-border: rgba(245, 240, 232, 0.12);
   --footer-foreground: #e8e4dc;
+
+  --neo-bg: var(--nav-bg);
+  --neo-shadow: rgba(0, 0, 0, 0.6);
+  --neo-highlight: rgba(255, 255, 255, 0.14);
 }
 
 .dark .noise-overlay {
@@ -213,5 +221,38 @@
     h3 {
       font-size: 1.5rem;
     }
+  }
+}
+
+@layer components {
+  .theme-toggle {
+    border-radius: 9999px;
+    background-color: var(--neo-bg);
+    color: var(--link-color);
+    /* Mesma estrutura de sombra em todos os estados para a transição animar */
+    box-shadow:
+      0 0 0 var(--neo-shadow),
+      0 0 0 var(--neo-highlight);
+    transition:
+      transform 0.18s ease-in-out,
+      box-shadow 0.22s ease-in-out,
+      background-color 0.22s ease-in-out,
+      color 0.2s ease-in-out;
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--neo-bg);
+    /* Raised: sombra escura embaixo à direita, luz acima à esquerda */
+    box-shadow:
+      7px 7px 14px var(--neo-shadow),
+      -7px -7px 14px var(--neo-highlight);
+  }
+
+  .theme-toggle:active {
+    transform: translateY(1px);
+    /* Pressed: mesma técnica com outset, valores menores = “afundado” */
+    box-shadow:
+      3px 3px 6px var(--neo-shadow),
+      -3px -3px 6px var(--neo-highlight);
   }
 }

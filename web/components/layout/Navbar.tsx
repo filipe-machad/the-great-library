@@ -26,7 +26,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
         backgroundColor: "var(--nav-bg)",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 py-5">
+      <div className="max-w-5xl mx-auto px-6 py-5 relative">
         <div className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-2">
             <BookOpen
@@ -65,7 +65,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
             <button
               type="button"
               onClick={toggleTheme}
-              className="cursor-pointer p-2 transition-colors duration-200 hover:opacity-70"
+              className="theme-toggle cursor-pointer p-2"
               style={{ color: "var(--link-color)" }}
               aria-label={resolvedTheme === "dark" ? "Modo claro" : "Modo escuro"}
             >
@@ -88,7 +88,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
             <button
               type="button"
               onClick={toggleTheme}
-              className="cursor-pointer p-2"
+              className="theme-toggle cursor-pointer p-2"
               style={{ color: "var(--link-color)" }}
               aria-label={resolvedTheme === "dark" ? "Modo claro" : "Modo escuro"}
             >
@@ -115,9 +115,20 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden mt-4 pb-2 flex flex-col gap-3">
+        {/* Mobile menu (overlay, doesn't affect page height) */}
+        <div
+          className={[
+            "md:hidden absolute left-0 right-0 top-full",
+            "origin-top transition-[transform,opacity] duration-300 ease-out",
+            mobileOpen ? "translate-y-0 opacity-100 pointer-events-auto" : "-translate-y-2 opacity-0 pointer-events-none",
+          ].join(" ")}
+          style={{
+            backgroundColor: "var(--nav-bg)",
+            borderBottom: "1px solid var(--divider)",
+          }}
+          aria-hidden={!mobileOpen}
+        >
+          <div className="px-6 py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -133,7 +144,7 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
               </Link>
             ))}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
