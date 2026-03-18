@@ -119,12 +119,21 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
         <div
           className={[
             "md:hidden absolute left-0 right-0 top-full",
-            "origin-top transition-[transform,opacity] duration-300 ease-out",
-            mobileOpen ? "translate-y-0 opacity-100 pointer-events-auto" : "-translate-y-2 opacity-0 pointer-events-none",
+            "origin-top overflow-hidden transform-gpu will-change-transform transition-transform duration-200 ease-out",
+            mobileOpen
+              ? "translate-y-0 scale-y-100 pointer-events-auto"
+              : "-translate-y-2 scale-y-0 pointer-events-none",
+            // When open, visually separate from page content below
+            mobileOpen
+              ? "shadow-[0_18px_24px_-18px_rgba(0,0,0,0.22)] dark:shadow-[0_18px_24px_-18px_rgba(0,0,0,0.6)]"
+              : "",
           ].join(" ")}
           style={{
             backgroundColor: "var(--nav-bg)",
-            borderBottom: "1px solid var(--divider)",
+            // Avoid double dividers; only add a separator when open
+            borderBottom: mobileOpen
+              ? "1px solid color-mix(in srgb, var(--accent-gold) 28%, var(--divider) 72%)"
+              : "none",
           }}
           aria-hidden={!mobileOpen}
         >

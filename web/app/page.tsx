@@ -84,17 +84,17 @@ export default function Home() {
             href="/azu"
             icon={Sparkles}
           />
-          {/* <ChapterCard
-            title={t("cards.fragmentados.title")}
-            description={t("cards.fragmentados.description")}
-            href="/fragmentados"
-            icon={Puzzle}
-          /> */}
           <ChapterCard
             title={t("cards.barman.title")}
             description={t("cards.barman.description")}
             href="/o-barman-atemporal"
             icon={Wine}
+          />
+          <ChapterCard
+            title={t("cards.fragmentados.title")}
+            description={t("cards.fragmentados.description")}
+            href="/fragmentados"
+            icon={Puzzle}
           />
         </div>
       </section>
