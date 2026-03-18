@@ -77,7 +77,7 @@ export default function Home() {
           {t("worldsSubtitle")}
         </p>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <ChapterCard
             title={t("cards.azu.title")}
             description={t("cards.azu.description")}

@@ -24,7 +24,6 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
       style={{
         borderColor: "var(--divider)",
         backgroundColor: "var(--nav-bg)",
-        transition: "background-color 0.25s ease, border-color 0.25s ease",
       }}
     >
       <div className="max-w-5xl mx-auto px-6 py-5">
