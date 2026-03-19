@@ -255,4 +255,20 @@
       3px 3px 6px var(--neo-shadow),
       -3px -3px 6px var(--neo-highlight);
   }
+
+  .small-caps {
+    font-variant: small-caps;
+    text-transform: lowercase;
+  }
+
+  .drop-cap > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 0.8;
+    padding-right: 0.15em;
+    padding-top: 0.05em;
+    color: var(--foreground);
+    font-weight: 400;
+  }
 }

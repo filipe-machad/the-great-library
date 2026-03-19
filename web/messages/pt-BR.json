@@ -70,6 +70,25 @@
     "azuSubtitle": "Este índice não existe ou ainda não foi escrito.",
     "azuReturn": "Voltar a Azü"
   },
+  "characters": {
+    "registryPrefix": "Registro N\u00ba",
+    "sections": {
+      "identity": "Registro de Identidade",
+      "biography": "Cr\u00f4nicas e Biografia",
+      "personality": "Tra\u00e7os e Personalidade",
+      "connections": "Conex\u00f5es",
+      "appearances": "Apari\u00e7\u00f5es Registradas"
+    },
+    "roles": {
+      "principal": "Principal",
+      "mention": "Men\u00e7\u00e3o"
+    },
+    "backToCharacters": "Personagens",
+    "readDossier": "Ver Dossi\u00ea",
+    "listTitle": "Personagens",
+    "listSubtitle": "Os protagonistas e figuras centrais cujas hist\u00f3rias definem eras.",
+    "emptyState": "Nenhum personagem registrado neste mundo ainda."
+  },
   "search": {
     "title": "Busca Alquímica",
     "empty": "Os arquivos não revelaram nada para este termo... tente outra busca.",
