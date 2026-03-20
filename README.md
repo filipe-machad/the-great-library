@@ -1,8 +1,6 @@
 # A Grande Biblioteca *(The Great Library)*
 
-> *Onde a memória vive eterna e o esquecido encontra voz.*
-
-> *"Viver é tecer. Cessar é abrir espaço. Entre os dois, tudo acontece."*
+> *Onde a memória vive eterna.*
 
 **A Grande Biblioteca** é um artifício para catalogar mundos e suas histórias. Ela existe num plano fora dos acontecimentos e das épocas — santuário e arquivo ao mesmo tempo — onde ficam guardados os tomos de cada mundo: crônicas, narrativas e as verdades que os habitam. **Artêmis**, a bibliotecária, mantém os acervos e apresenta aos visitantes os mundos catalogados.
 
