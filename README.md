@@ -1,12 +1,16 @@
-# The Great Library
+# A Grande Biblioteca *(The Great Library)*
+
+> *Onde a memória vive eterna e o esquecido encontra voz.*
 
 > *"Viver é tecer. Cessar é abrir espaço. Entre os dois, tudo acontece."*
 
-Repositório canônico do universo narrativo de fantasia medieval que servirá de base para contos, narrativas e um sistema de RPG original. Aqui está consolidado todo o conhecimento do mundo: cosmologia, mecânicas, geografia, lore oculta e material de campanha.
+**A Grande Biblioteca** é um artifício para catalogar mundos e suas histórias. Ela existe num plano fora dos acontecimentos e das épocas — santuário e arquivo ao mesmo tempo — onde ficam guardados os tomos de cada mundo: crônicas, narrativas e as verdades que os habitam. **Artêmis**, a bibliotecária, mantém os acervos e apresenta aos visitantes os mundos catalogados.
+
+Este repositório é a base **canônica** dessa biblioteca: Markdown estruturado, sites MkDocs (público e GM) e a aplicação web em `web/`. Hoje o acervo mais desenvolvido é o mundo de **Azü** (fantasia medieval, contos, campanhas e sistema de RPG); outros mundos podem conviver no mesmo projeto à medida que forem ganhando tomos próprios.
 
 ---
 
-## Visão Geral do Mundo
+## Azü — visão geral do mundo (canon principal)
 
 O mundo é sustentado por uma energia vital chamada **azü** — uma força viva que permeia lugares e pessoas. Em certos pontos ela se adensa, tornando-se visível, tátil e manipulável. Ao longo dos séculos, **artesãos** aprenderam a extrair, purificar e tecer a azü em formas úteis: desde pequenos **orbes** condensados até **artefatos imbuídos** e, em casos raríssimos, **Arin** — Artefatos Inefáveis de poder quase inimaginável.
 
