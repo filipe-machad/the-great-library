@@ -11,7 +11,7 @@ portrait: /characters/thoros.png
 summary: "Leonino encontrado numa caverna e criado por Edgard. Rejeitado pelo império, tornou-se mercenário na Montanha Invertida; a espada Shadah M'ur deu-lhe o nome Thoros — 'morte sob a montanha'."
 identity:
   fullName: "Thoros (antes Símevros)"
-  species: "Leonino"
+  race: "Leonino"
   class: "Bárbaro / Mercenário"
   titles: "Morte sob a montanha"
   origin: "Caverna (criado por Edgard); depois Montanha Invertida"

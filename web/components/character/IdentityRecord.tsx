@@ -8,7 +8,7 @@ interface IdentityRecordProps {
 
 const FIELD_MAP: { key: keyof CharacterIdentity; label: string }[] = [
   { key: "fullName", label: "Nome Completo" },
-  { key: "species", label: "Espécie" },
+  { key: "race", label: "Raça" },
   { key: "titles", label: "Títulos" },
   { key: "class", label: "Classe" },
   { key: "origin", label: "Origem" },

@@ -11,7 +11,7 @@ portrait: /characters/morthra.png
 summary: "Aasimar caída e clériga do Domínio da Morte. Acredita que a morte é inevitável e parte do ciclo; não mata por prazer, mas intervém sem hesitar quando uma vida já não cumpre propósito ou prolonga sofrimento."
 identity:
   fullName: "Morthra"
-  species: "Aasimar Caída"
+  race: "Aasimar Caída"
   class: "Clériga (Domínio da Morte)"
   titles: "A Sombra Errante"
   origin: "Templo da Deusa da Vida (exilada)"

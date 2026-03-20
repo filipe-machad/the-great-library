@@ -4,13 +4,13 @@
 
 **A Grande Biblioteca** é um artifício para catalogar mundos e suas histórias. Ela existe num plano fora dos acontecimentos e das épocas — santuário e arquivo ao mesmo tempo — onde ficam guardados os tomos de cada mundo: crônicas, narrativas e as verdades que os habitam. **Artêmis**, a bibliotecária, mantém os acervos e apresenta aos visitantes os mundos catalogados.
 
-Este repositório é a base **canônica** dessa biblioteca: Markdown estruturado, sites MkDocs (público e GM) e a aplicação web em `web/`. Hoje o acervo mais desenvolvido é o mundo de **Azü** (fantasia medieval, contos, campanhas e sistema de RPG); outros mundos podem conviver no mesmo projeto à medida que forem ganhando tomos próprios.
+Este repositório é a base **canônica** dessa biblioteca: Markdown estruturado, e a aplicação web em `web/`. Hoje o acervo mais desenvolvido é o mundo de **Azü** (fantasia medieval, contos, campanhas e sistema de RPG); outros mundos podem conviver no mesmo projeto à medida que forem ganhando tomos próprios.
 
 ---
 
 ## Azü — visão geral do mundo (canon principal)
 
-O mundo é sustentado por uma energia vital chamada **azü** — uma força viva que permeia lugares e pessoas. Em certos pontos ela se adensa, tornando-se visível, tátil e manipulável. Ao longo dos séculos, **artesãos** aprenderam a extrair, purificar e tecer a azü em formas úteis: desde pequenos **orbes** condensados até **artefatos imbuídos** e, em casos raríssimos, **Arin** — Artefatos Inefáveis de poder quase inimaginável.
+O mundo é sustentado por uma energia vital chamada **azü** — uma força viva que permeia lugares e pessoas. Em certos pontos ela se adensa, tornando-se visível, tátil e manipulável. Ao longo dos séculos, **artesãos** aprenderam a extrair, purificar e tecer a azü em formas úteis: desde pequenos **orbes** condensados até **artefatos imbuídos** e, em casos raríssimos, **Arins** — Artefatos Inefáveis de poderes inimagináveis.
 
 A maioria da população cultua a **Deusa da Vida**, cujos templos e santuários pontilham cidades e campos. Os valores pregados — autodomínio, responsabilidade e respeito aos ciclos — refletem uma civilização que aprendeu a conviver com uma força maior do que qualquer indivíduo.
 

@@ -11,7 +11,7 @@ portrait: /characters/go-jira.png
 summary: "Um draconato azul guerreiro moldado pela guerra e pela convicção de que toda a existência é um grande torneio de poder."
 identity:
   fullName: "Go'Jira"
-  species: "Draconato Azul"
+  race: "Draconato Azul"
   class: "Guerreiro"
   titles: "O Aspirante ao Ápice"
   origin: "Clã draconato (cidade destruída na guerra)"

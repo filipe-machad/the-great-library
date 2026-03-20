@@ -19,6 +19,7 @@ import {
   Puzzle,
   Clock,
   Swords,
+  Scroll,
 } from "lucide-react";
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string; size?: number }>> = {
@@ -52,6 +53,49 @@ export default function AzuHubPage() {
         <Divider symbol="✦" />
 
         <h2 className="mb-6 mt-12" style={{ fontFamily: "var(--font-heading)" }}>
+          Campanhas
+        </h2>
+        <div className="mb-16">
+          <Link href="/azu/campaigns" className="block group">
+            <div
+              className="relative pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
+              style={{ backgroundColor: "var(--card)" }}
+            >
+              <div className="flex items-baseline justify-between gap-4 flex-1">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span style={{ color: "var(--accent-gold)" }}>
+                      <Scroll size={20} />
+                    </span>
+                    <h3
+                      className="text-lg mb-0"
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        color: "var(--foreground)",
+                      }}
+                    >
+                      Campanhas
+                    </h3>
+                  </div>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "var(--secondary-ink)", marginBottom: 0 }}
+                  >
+                    Crônicas jogadas no mundo de Azü — narrativas que nascem da mesa
+                  </p>
+                </div>
+                <span
+                  className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                  style={{ color: "var(--accent-gold)" }}
+                >
+                  →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        <h2 className="mb-6" style={{ fontFamily: "var(--font-heading)" }}>
           Personagens
         </h2>
         <div className="mb-16">

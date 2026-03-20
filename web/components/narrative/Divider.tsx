@@ -1,12 +1,15 @@
 interface DividerProps {
   symbol?: string;
   bounce?: boolean;
+  /** Margens menores — use entre parágrafos de narrativa (evita “buracos” enormes). */
+  compact?: boolean;
 }
 
-export function Divider({ symbol, bounce = false }: DividerProps) {
+export function Divider({ symbol, bounce = false, compact = false }: DividerProps) {
+  const marginY = compact ? "my-6" : "my-16";
   return (
     <div
-      className={`flex items-center justify-center my-16${
+      className={`flex items-center justify-center ${marginY}${
         bounce ? " animate-bounce" : ""
       }`}
     >

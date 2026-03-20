@@ -11,7 +11,7 @@ portrait: /characters/bryn.jpg
 summary: "Firbolg druida do Círculo da Lua, devoto da Deusa da Vida. Banido da tribo por dissecar um morto; acredita que compreender a anatomia é a mais elevada forma de reverência."
 identity:
   fullName: "Bryn"
-  species: "Firbolg"
+  race: "Firbolg"
   class: "Druida (Ciclo da Lua)"
   titles: "O Abre-Crânios"
   origin: "Floresta de Convergência; depois cabana na colina"

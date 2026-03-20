@@ -57,55 +57,55 @@
 }
 
 .dark {
-  --background: #1c1917;
-  --foreground: #f5f0e8;
-  --secondary-ink: #a8a29e;
+  --background: #0a0908;
+  --foreground: #f0ebe3;
+  --secondary-ink: #9c9890;
 
-  --accent-gold: #c4b896;
-  --accent-blue-gray: #94a3b8;
+  --accent-gold: #c9bc98;
+  --accent-blue-gray: #8b9cb0;
 
-  --divider: rgba(168, 162, 158, 0.25);
-  --border: rgba(168, 162, 158, 0.2);
+  --divider: rgba(156, 152, 144, 0.22);
+  --border: rgba(156, 152, 144, 0.18);
 
-  --link-color: #c4b896;
-  --link-hover: #e0d6c4;
+  --link-color: #c9bc98;
+  --link-hover: #e8dfd0;
 
   --gradient-subtle: radial-gradient(
     circle at top,
-    rgba(28, 25, 23, 1) 0%,
-    rgba(23, 20, 18, 1) 100%
+    rgba(14, 12, 10, 1) 0%,
+    rgba(8, 7, 6, 1) 100%
   );
 
-  --card: #292524;
-  --card-foreground: #f5f0e8;
-  --popover: #292524;
-  --popover-foreground: #f5f0e8;
-  --primary: #f5f0e8;
-  --primary-foreground: #1c1917;
-  --secondary: #a8a29e;
-  --secondary-foreground: #1c1917;
-  --muted: #3d3935;
-  --muted-foreground: #a8a29e;
-  --accent: #c4b896;
-  --accent-foreground: #1c1917;
-  --destructive: #b85c5c;
+  --card: #141210;
+  --card-foreground: #f0ebe3;
+  --popover: #141210;
+  --popover-foreground: #f0ebe3;
+  --primary: #f0ebe3;
+  --primary-foreground: #0a0908;
+  --secondary: #9c9890;
+  --secondary-foreground: #0a0908;
+  --muted: #1c1a17;
+  --muted-foreground: #9c9890;
+  --accent: #c9bc98;
+  --accent-foreground: #0a0908;
+  --destructive: #c46a6a;
   --destructive-foreground: #f5f0e8;
   --input: transparent;
-  --input-background: #292524;
-  --ring: rgba(196, 184, 150, 0.35);
+  --input-background: #141210;
+  --ring: rgba(201, 188, 152, 0.35);
   --radius: 0.25rem;
 
-  --sidebar: #292524;
-  --sidebar-foreground: #f5f0e8;
+  --sidebar: #141210;
+  --sidebar-foreground: #f0ebe3;
 
-  --nav-bg: rgba(28, 25, 23, 0.95);
-  --footer-bg: #141210;
-  --footer-border: rgba(245, 240, 232, 0.12);
-  --footer-foreground: #e8e4dc;
+  --nav-bg: rgba(10, 9, 8, 0.92);
+  --footer-bg: #040403;
+  --footer-border: rgba(240, 235, 227, 0.1);
+  --footer-foreground: #ddd8cf;
 
   --neo-bg: var(--nav-bg);
-  --neo-shadow: rgba(0, 0, 0, 0.6);
-  --neo-highlight: rgba(255, 255, 255, 0.14);
+  --neo-shadow: rgba(0, 0, 0, 0.75);
+  --neo-highlight: rgba(255, 255, 255, 0.08);
 }
 
 .dark .noise-overlay {

@@ -22,7 +22,7 @@ export interface CharacterAppearance {
 
 export interface CharacterIdentity {
   fullName: string;
-  species: string;
+  race: string;
   class: string;
   titles: string;
   origin: string;

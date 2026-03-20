@@ -12,6 +12,9 @@
 # Cursor/IDE
 .cursor/
 
+# pnpm (cache local — não versionar)
+.pnpm-store/
+
 # MkDocs build output
 site/
 
