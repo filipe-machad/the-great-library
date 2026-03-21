@@ -40,18 +40,15 @@ export function ConnectionCards({ connections }: ConnectionCardsProps) {
             <Tag
               key={conn.name}
               {...(isLink ? { href: conn.href } : {})}
-              className="group flex items-center gap-4 p-4 sm:p-5 rounded-lg cursor-pointer transition-[background-color,border-color] duration-200 hover:border-[var(--accent-gold)] hover:[background:color-mix(in_srgb,var(--card)_92%,var(--accent-gold)_8%)]"
-              style={{
-                backgroundColor: "var(--card)",
-                border: "1px solid var(--border)",
-                textDecoration: "none",
-              }}
+              className={`group flex items-center gap-4 p-4 sm:p-5 rounded-lg border border-[var(--border)] bg-[var(--card)] no-underline transition-[border-color,box-shadow] duration-300 ease-out hover:border-[var(--accent-gold)] ${
+                isLink ? "cursor-pointer" : "cursor-default"
+              }`}
             >
               <div
-                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full transition-[border-color,box-shadow] duration-200 group-hover:border-[var(--accent-gold)]"
+                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300"
                 style={{
                   backgroundColor: "var(--muted)",
-                  border: "2px solid transparent",
+                  border: "2px solid var(--border)",
                 }}
               >
                 <Icon
@@ -78,7 +75,7 @@ export function ConnectionCards({ connections }: ConnectionCardsProps) {
                 </p>
               </div>
               <span
-                className="flex-shrink-0 text-sm transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-[var(--accent-gold)]"
+                className="flex-shrink-0 text-sm inline-block transition-[color,transform] duration-300 ease-out group-hover:translate-x-1 group-hover:text-[var(--accent-gold)]"
                 style={{ color: "var(--secondary-ink)" }}
               >
                 &rsaquo;

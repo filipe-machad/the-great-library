@@ -34,6 +34,10 @@ export default async function ChapterNarrativePage({ params }: Props) {
   if (!result) notFound();
 
   return (
-    <NarrativePage campaign={result.campaign} chapter={result.chapter} />
+    <NarrativePage
+      variant="campaign"
+      campaign={result.campaign}
+      chapter={result.chapter}
+    />
   );
 }

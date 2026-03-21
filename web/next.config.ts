@@ -32,6 +32,16 @@ const nextConfig: NextConfig = {
       // Old /azu/[slug] (energy docs) -> /azu/energia/[slug]
       { source: "/azu/azu", destination: "/azu/energia/azu", permanent: true },
       { source: "/azu/sensory-guide", destination: "/azu/energia/sensory-guide", permanent: true },
+      {
+        source: "/azu/campaigns/laeyla/conto",
+        destination: "/contos/laeyla",
+        permanent: true,
+      },
+      {
+        source: "/azu/campaigns/laeyla",
+        destination: "/contos/laeyla",
+        permanent: true,
+      },
     ];
   },
 };

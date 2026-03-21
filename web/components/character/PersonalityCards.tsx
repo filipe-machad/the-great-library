@@ -26,9 +26,10 @@ export function PersonalityCards({ traits }: PersonalityCardsProps) {
           return (
             <div
               key={key}
-              className="group p-5 text-center flex flex-col items-center rounded-md border border-[color-mix(in_srgb,var(--border)_80%,var(--accent-gold)_20%)] transition-[border-color,box-shadow] duration-200 ease-out hover:border-[var(--accent-gold)] hover:shadow-[0_4px_14px_rgba(184,160,126,0.18)]"
+              className="group relative overflow-hidden p-5 text-center flex flex-col items-center rounded-lg border transition duration-300 ease-out hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out hover:before:h-full"
               style={{
                 backgroundColor: "var(--card)",
+                borderColor: "var(--border)",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
               }}
             >

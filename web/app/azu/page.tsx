@@ -52,14 +52,14 @@ export default function AzuHubPage() {
 
         <Divider symbol="✦" />
 
-        <h2 className="mb-6 mt-12" style={{ fontFamily: "var(--font-heading)" }}>
-          Campanhas
-        </h2>
-        <div className="mb-16">
+        <div className="mb-5">
           <Link href="/azu/campaigns" className="block group">
             <div
-              className="relative pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
-              style={{ backgroundColor: "var(--card)" }}
+              className="relative rounded-lg pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+              style={{
+                backgroundColor: "var(--card)",
+                borderColor: "var(--border)",
+              }}
             >
               <div className="flex items-baseline justify-between gap-4 flex-1">
                 <div className="flex-1 min-w-0">
@@ -85,7 +85,7 @@ export default function AzuHubPage() {
                   </p>
                 </div>
                 <span
-                  className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                  className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform] duration-300 ease-out flex-shrink-0 inline-block"
                   style={{ color: "var(--accent-gold)" }}
                 >
                   →
@@ -95,14 +95,14 @@ export default function AzuHubPage() {
           </Link>
         </div>
 
-        <h2 className="mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-          Personagens
-        </h2>
         <div className="mb-16">
           <Link href="/azu/characters" className="block group">
             <div
-              className="relative pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
-              style={{ backgroundColor: "var(--card)" }}
+              className="relative rounded-lg pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+              style={{
+                backgroundColor: "var(--card)",
+                borderColor: "var(--border)",
+              }}
             >
               <div className="flex items-baseline justify-between gap-4 flex-1">
                 <div className="flex-1 min-w-0">
@@ -128,7 +128,7 @@ export default function AzuHubPage() {
                   </p>
                 </div>
                 <span
-                  className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                  className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform] duration-300 ease-out flex-shrink-0 inline-block"
                   style={{ color: "var(--accent-gold)" }}
                 >
                   →
@@ -153,9 +153,10 @@ export default function AzuHubPage() {
                 className="block group h-full"
               >
                 <div
-                  className="relative h-full pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent-gold)] before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 group-hover:before:h-full"
+                  className="relative h-full rounded-lg pt-4 pb-4 pl-5 pr-4 md:pt-6 md:pb-6 md:pl-6 md:pr-5 overflow-hidden flex flex-col border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
+                    borderColor: "var(--border)",
                   }}
                 >
                   <div className="flex items-baseline justify-between gap-4 flex-1">
@@ -182,7 +183,7 @@ export default function AzuHubPage() {
                       </p>
                     </div>
                     <span
-                      className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                      className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform] duration-300 ease-out flex-shrink-0 inline-block"
                       style={{ color: "var(--accent-gold)" }}
                     >
                       →

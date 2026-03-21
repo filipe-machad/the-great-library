@@ -6,6 +6,7 @@ import { Feather } from "lucide-react";
 
 const footerLinks = [
   { href: "/", key: "home" },
+  { href: "/contos", key: "contos" },
   { href: "/azu", key: "azu" },
   { href: "/fragmentados", key: "fragmentados" },
   { href: "/o-barman-atemporal", key: "barman" },

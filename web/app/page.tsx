@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Sparkles, Puzzle, Wine } from "lucide-react";
+import { BookMarked, Sparkles, Puzzle, Wine } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ChapterCard } from "@/components/narrative/ChapterCard";
 import { Divider } from "@/components/narrative/Divider";
@@ -83,6 +83,12 @@ export default function Home() {
             description={t("cards.azu.description")}
             href="/azu"
             icon={Sparkles}
+          />
+          <ChapterCard
+            title={t("cards.contos.title")}
+            description={t("cards.contos.description")}
+            href="/contos"
+            icon={BookMarked}
           />
           <ChapterCard
             title={t("cards.barman.title")}

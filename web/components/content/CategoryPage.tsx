@@ -59,7 +59,7 @@ export function CategoryPage({
                 className="block group"
               >
                 <div
-                  className="p-6 transition-all duration-300 border-2 hover:shadow-md hover:-translate-y-0.5 hover:border-[var(--accent-gold)]"
+                  className="relative p-6 rounded-lg overflow-hidden border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
                     borderColor: "var(--border)",
@@ -102,7 +102,7 @@ export function CategoryPage({
                       )}
                     </div>
                     <span
-                      className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                      className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform] duration-300 ease-out flex-shrink-0 inline-block"
                       style={{ color: "var(--accent-gold)" }}
                     >
                       →

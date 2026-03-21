@@ -23,7 +23,15 @@ export function AppearancesList({ appearances }: AppearancesListProps) {
             <Tag
               key={app.title}
               {...(isLink ? { href: app.href } : {})}
-              className={`flex items-center gap-4 p-4 rounded-lg border transition-[background-color,border-color] duration-200 ${isActive ? "border-[var(--accent-gold)] [background:color-mix(in_srgb,var(--card)_90%,var(--accent-gold)_10%)]" : "border-[var(--border)]"} ${isLink && !isActive ? "cursor-pointer group hover:border-[var(--accent-gold)] hover:[background:color-mix(in_srgb,var(--card)_92%,var(--accent-gold)_8%)]" : ""}`}
+              className={`flex items-center gap-4 p-4 rounded-lg border transition duration-300 ease-out ${
+                isActive
+                  ? "border-[var(--accent-gold)] [background:color-mix(in_srgb,var(--card)_90%,var(--accent-gold)_10%)]"
+                  : "border-[var(--border)]"
+              } ${
+                isLink && !isActive
+                  ? "relative overflow-hidden cursor-pointer group before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out hover:before:h-full"
+                  : ""
+              }`}
               style={{
                 backgroundColor: isActive ? undefined : "var(--card)",
                 textDecoration: "none",

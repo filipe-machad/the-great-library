@@ -45,7 +45,7 @@ export default function AzuCharactersListPage() {
                 className="block group"
               >
                 <div
-                  className="relative p-6 rounded-lg transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out border hover:border-[var(--accent-gold)] hover:shadow-md hover:-translate-y-0.5 hover:[background:color-mix(in_srgb,var(--card)_92%,var(--accent-gold)_8%)] flex items-center gap-6 overflow-hidden before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                  className="relative p-6 rounded-lg flex items-center gap-6 overflow-hidden border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
                     borderColor: "var(--border)",
@@ -98,7 +98,7 @@ export default function AzuCharactersListPage() {
                     {char.frontmatter.status}
                   </span>
                   <span
-                    className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 inline-block"
+                    className="text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform] duration-300 ease-out flex-shrink-0 inline-block"
                     style={{ color: "var(--accent-gold)" }}
                   >
                     →

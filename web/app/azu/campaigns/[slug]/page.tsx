@@ -76,7 +76,7 @@ export default async function CampaignDetailPage({ params }: Props) {
                 className="block group"
               >
                 <div
-                  className="relative overflow-hidden rounded-lg border transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-[var(--accent-gold)] hover:shadow-md hover:-translate-y-0.5 before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                  className="relative overflow-hidden rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
                     borderColor: "var(--border)",
@@ -140,7 +140,7 @@ export default async function CampaignDetailPage({ params }: Props) {
                     </p>
                     <div className="mt-4 flex items-center gap-2">
                       <span
-                        className="text-xs uppercase tracking-wider transition-colors duration-200 group-hover:text-[var(--accent-gold)]"
+                        className="text-xs uppercase tracking-wider transition-colors duration-300 ease-out group-hover:text-[var(--accent-gold)]"
                         style={{
                           color: "var(--secondary-ink)",
                           fontFamily: "var(--font-heading)",
@@ -149,7 +149,7 @@ export default async function CampaignDetailPage({ params }: Props) {
                         Ler crônica
                       </span>
                       <span
-                        className="text-xs transition-transform duration-200 group-hover:translate-x-1"
+                        className="text-xs transition-transform duration-300 ease-out group-hover:translate-x-1"
                         style={{ color: "var(--accent-gold)" }}
                       >
                         →

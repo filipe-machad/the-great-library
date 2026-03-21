@@ -39,6 +39,10 @@
       "barman": {
         "title": "O Barman Atemporal",
         "description": "Um drink que você não sabia que precisava."
+      },
+      "contos": {
+        "title": "Contos",
+        "description": "Narrativas canónicas da própria Biblioteca — independentes das campanhas de mesa, mas guardadas nos mesmos tomos."
       }
     }
   },
@@ -58,7 +62,8 @@
       "azu": "AZÜ",
       "fragmentados": "FRAGMENTADOS",
       "barman": "O BARMAN ATEMPORAL",
-      "about": "SOBRE A BIBLIOTECA"
+      "about": "SOBRE A BIBLIOTECA",
+      "contos": "CONTOS"
     }
   },
   "notFound": {

@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   title: "A Grande Biblioteca",
   description:
     "Onde a memória vive eterna e o esquecido encontra voz. Repositório canônico do universo narrativo.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default async function RootLayout({

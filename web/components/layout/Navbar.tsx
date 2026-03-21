@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { Search, Menu, X, BookOpen, Sun, Moon } from "lucide-react";
+import { Search, Menu, X, Sun, Moon } from "lucide-react";
+import { SiteLogo } from "@/components/brand/SiteLogo";
 
 const navLinks = [
   { href: "/lore", key: "about" },
@@ -28,23 +29,8 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
     >
       <div className="max-w-5xl mx-auto px-6 py-5 relative">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2">
-            <BookOpen
-              size={22}
-              style={{ color: "var(--accent-gold)" }}
-              className="flex-shrink-0"
-            />
-            <h4
-              className="transition-colors duration-200"
-              style={{
-                fontFamily: "var(--font-heading)",
-                color: "var(--accent-gold)",
-                fontSize: "1.25rem",
-                marginBottom: 0,
-              }}
-            >
-              A Grande Biblioteca
-            </h4>
+          <Link href="/" className="group flex items-center shrink-0">
+            <SiteLogo className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-[0.88]" />
           </Link>
 
           {/* Desktop: Sobre a Biblioteca + search */}

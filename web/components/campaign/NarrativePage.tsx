@@ -7,48 +7,59 @@ import { Footer } from "@/components/layout/Footer";
 import { Divider } from "@/components/narrative/Divider";
 import type { Campaign, CampaignChapter } from "@/lib/campaigns";
 import {
+  type BibliotecaConto,
+  heroObjectPositionClass,
+  type HeroObjectPosition,
+} from "@/lib/contos";
+import { LaeylaNarrativeBody } from "@/components/campaign/LaeylaNarrativeBody";
+import {
   BookOpen,
   BookMarked,
   MapPin,
   ChevronLeft,
   ChevronRight,
-  Bookmark,
-  Scroll,
 } from "lucide-react";
 
-interface NarrativePageProps {
-  campaign: Campaign;
-  chapter: CampaignChapter;
-}
+export type NarrativePageProps =
+  | { variant: "campaign"; campaign: Campaign; chapter: CampaignChapter }
+  | { variant: "tale"; tale: BibliotecaConto };
 
-function HeroMedia({ chapter }: { chapter: CampaignChapter }) {
-  if (!chapter.heroMedia) return null;
+type HeroMediaShape = NonNullable<CampaignChapter["heroMedia"]>;
 
+function HeroMediaDisplay({
+  heroMedia,
+  altTitle,
+  objectPosition = "mid",
+}: {
+  heroMedia: HeroMediaShape;
+  altTitle: string;
+  objectPosition?: HeroObjectPosition;
+}) {
+  const posClass = heroObjectPositionClass(objectPosition);
   return (
-    <div className="relative w-full aspect-[21/9] overflow-hidden">
-      {chapter.heroMedia.type === "video" ? (
+    <div className="relative mx-auto aspect-[21/9] w-full max-h-[min(52vh,28rem)] overflow-hidden sm:max-h-[min(58vh,32rem)]">
+      {heroMedia.type === "video" ? (
         <video
-          src={chapter.heroMedia.src}
+          src={heroMedia.src}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover ${posClass}`}
         />
       ) : (
         <Image
-          src={chapter.heroMedia.src}
-          alt={chapter.heroMedia.alt ?? chapter.title}
+          src={heroMedia.src}
+          alt={heroMedia.alt ?? altTitle}
           fill
-          className="object-cover"
+          className={`object-cover ${posClass}`}
           priority
         />
       )}
       <div
-        className="absolute inset-x-0 bottom-0 h-[42%] sm:h-[38%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[72%] sm:h-[66%] dark:h-[76%] dark:sm:h-[70%]"
         style={{
-          background:
-            "linear-gradient(to top, var(--background) 0%, color-mix(in srgb, var(--background) 55%, transparent) 45%, transparent 100%)",
+          background: "var(--hero-media-fade)",
         }}
       />
     </div>
@@ -56,9 +67,19 @@ function HeroMedia({ chapter }: { chapter: CampaignChapter }) {
 }
 
 /** Sticky only within its parent section — scrolls away when the section ends. */
-function SectionAside({ children }: { children: React.ReactNode }) {
+function SectionAside({
+  children,
+  alignBottom = false,
+}: {
+  children: React.ReactNode;
+  /** Alinha o card ao fundo da grelha (última secção com texto mais baixo que o aside). */
+  alignBottom?: boolean;
+}) {
+  const selfAlign = alignBottom ? "lg:self-end" : "lg:self-start";
   return (
-    <aside className="mb-10 lg:mb-0 lg:sticky lg:top-24 lg:self-start shrink-0 w-full max-w-md mx-auto lg:max-w-none lg:w-[min(100%,18rem)] xl:w-80">
+    <aside
+      className={`mb-10 lg:mb-0 lg:sticky lg:top-24 ${selfAlign} shrink-0 w-full max-w-md mx-auto lg:max-w-none lg:w-[min(100%,15rem)] xl:w-72`}
+    >
       {children}
     </aside>
   );
@@ -67,7 +88,7 @@ function SectionAside({ children }: { children: React.ReactNode }) {
 function AsideCardFrame({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="border rounded-sm overflow-hidden shadow-sm"
+      className="border rounded-lg overflow-hidden shadow-sm"
       style={{
         backgroundColor: "var(--card)",
         borderColor: "var(--border)",
@@ -149,7 +170,7 @@ function MappedArtifactCard() {
           alt="Ilustração do espelho trincado sob luz fria"
           width={520}
           height={360}
-          className="w-full h-auto max-h-[240px] object-contain pt-4"
+          className="w-full h-auto max-h-[240px] object-contain mt-2 rounded-lg"
         />
       </div>
       <div className="px-5 pb-5 pt-5">
@@ -184,11 +205,10 @@ function AboutFulanoCard() {
   return (
     <Link
       href="/azu/characters/seren-aelyra"
-      className="group block rounded-sm border overflow-hidden shadow-sm transition-[border-color,box-shadow] duration-200 ease-out hover:border-[var(--accent-gold)] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+      className="group relative block rounded-lg overflow-hidden border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:hover:translate-y-0 hover:-translate-y-0.5 hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out hover:before:h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
       style={{
         backgroundColor: "var(--card)",
         borderColor: "var(--border)",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
       }}
       aria-label="Ver dossiê de Seren Aelyra"
     >
@@ -207,7 +227,7 @@ function AboutFulanoCard() {
           </div>
           <div className="min-w-0 pt-0.5">
             <p
-              className="text-base font-medium mb-0.5 group-hover:text-[var(--accent-gold)] transition-colors duration-200"
+              className="text-base font-medium mb-0.5 group-hover:text-[var(--accent-gold)] transition-colors duration-300 ease-out"
               style={{
                 fontFamily: "var(--font-heading)",
                 color: "var(--foreground)",
@@ -288,22 +308,71 @@ function AboutCampaignCard({ campaign }: { campaign: Campaign }) {
   );
 }
 
-function narrativeSectionClassName() {
-  /* Margens moderadas: secções só existem pelo layout (sticky); evita “vão” entre parágrafos adjacentes. */
-  return "lg:grid lg:grid-cols-[minmax(0,1fr)_min(100%,18rem)] xl:grid-cols-[minmax(0,1fr)_20rem] gap-x-10 xl:gap-x-12 items-start mb-1 lg:mb-1 last:mb-0";
+function AboutTaleCard({ tale }: { tale: BibliotecaConto }) {
+  return (
+    <AsideCardFrame>
+      <div className="px-5 pt-5 pb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <BookMarked size={16} style={{ color: "var(--accent-gold)" }} />
+          <span
+            className="text-xs small-caps tracking-[0.1em]"
+            style={{ color: "var(--secondary-ink)" }}
+          >
+            Sobre o conto
+          </span>
+        </div>
+        <h4
+          className="text-base mb-2"
+          style={{
+            fontFamily: "var(--font-heading)",
+            color: "var(--foreground)",
+          }}
+        >
+          {tale.title}
+        </h4>
+        <p
+          className="text-sm leading-relaxed mb-0"
+          style={{ color: "var(--secondary-ink)" }}
+        >
+          {tale.summary}
+        </p>
+      </div>
+    </AsideCardFrame>
+  );
 }
 
-export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
-  const currentIndex = campaign.chapters.findIndex(
-    (ch) => ch.slug === chapter.slug
-  );
-  const prevChapter = currentIndex > 0 ? campaign.chapters[currentIndex - 1] : null;
+function narrativeSectionClassName(align: "start" | "end" = "start") {
+  /* Margens moderadas: secções só existem pelo layout (sticky); evita “vão” entre parágrafos adjacentes.
+     `end`: última linha da coluna principal alinha ao fundo do card lateral (mesma baseline visual). */
+  const alignItems = align === "end" ? "lg:items-end" : "lg:items-start";
+  return `lg:grid lg:grid-cols-[minmax(0,1fr)_min(100%,15rem)] xl:grid-cols-[minmax(0,1fr)_18rem] gap-x-10 xl:gap-x-12 ${alignItems} mb-1 lg:mb-1 last:mb-0`;
+}
+
+export function NarrativePage(props: NarrativePageProps) {
+  const isTale = props.variant === "tale";
+  const tale = isTale ? props.tale : null;
+  const campaign = !isTale ? props.campaign : null;
+  const chapter = !isTale ? props.chapter : null;
+
+  const currentIndex =
+    campaign && chapter
+      ? campaign.chapters.findIndex((ch) => ch.slug === chapter.slug)
+      : -1;
+  const prevChapter =
+    campaign && currentIndex > 0 ? campaign.chapters[currentIndex - 1] : null;
   const nextChapter =
-    currentIndex < campaign.chapters.length - 1
+    campaign && currentIndex >= 0 && currentIndex < campaign.chapters.length - 1
       ? campaign.chapters[currentIndex + 1]
       : null;
 
-  const hasHeroMedia = Boolean(chapter.heroMedia);
+  const heroMedia = isTale ? tale!.heroMedia : chapter!.heroMedia;
+  const hasHeroMedia = Boolean(heroMedia);
+  const displayTitle = isTale ? tale!.title : chapter!.title;
+
+  const isLaeylaTaleBody = isTale && tale!.body === "laeyla";
+
+  const backHref = isTale ? "/contos" : `/azu/campaigns/${campaign!.slug}`;
+  const backLabel = isTale ? "Contos" : campaign!.title;
 
   return (
     <div
@@ -322,7 +391,13 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
 
       <Navbar />
 
-      <HeroMedia chapter={chapter} />
+      {heroMedia ? (
+        <HeroMediaDisplay
+          heroMedia={heroMedia}
+          altTitle={displayTitle}
+          objectPosition={isTale ? tale!.heroObjectPosition : undefined}
+        />
+      ) : null}
 
       <header
         className={`max-w-3xl mx-auto px-6 pb-4 relative z-10 ${
@@ -332,7 +407,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
         }`}
       >
         <Link
-          href={`/azu/campaigns/${campaign.slug}`}
+          href={backHref}
           className={`inline-flex items-center gap-2 group ${
             hasHeroMedia ? "mb-6" : "mb-10"
           }`}
@@ -345,7 +420,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
             className="text-sm"
             style={{ fontFamily: "var(--font-heading)", color: "var(--accent-gold)" }}
           >
-            {campaign.title}
+            {backLabel}
           </span>
         </Link>
 
@@ -363,40 +438,70 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
               fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
             }}
           >
-            {chapter.title}
+            {displayTitle}
           </h1>
         </div>
 
         <blockquote className="text-center mb-8 max-w-xl mx-auto">
-          <p
-            className="italic text-lg leading-relaxed"
-            style={{ color: "var(--secondary-ink)" }}
-          >
-            &ldquo;Onde a luz do chão se apaga, o que resta é a memória daquilo
-            que nunca pediu para ser lembrado.&rdquo;
-          </p>
-          <footer
-            className="mt-3 text-xs small-caps tracking-[0.12em]"
-            style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
-          >
-            — Fragmento do Códice de Valerius, Terceira Era
-          </footer>
+          {isLaeylaTaleBody ? (
+            <>
+              <p
+                className="italic text-lg leading-relaxed"
+                style={{ color: "var(--secondary-ink)" }}
+              >
+                — Apenas <strong style={{ color: "var(--accent-gold)" }}>Läyla</strong>.
+                — Retrucou, indiferente.
+              </p>
+            </>
+          ) : (
+            <>
+              <p
+                className="italic text-lg leading-relaxed"
+                style={{ color: "var(--secondary-ink)" }}
+              >
+                &ldquo;Onde a luz do chão se apaga, o que resta é a memória daquilo
+                que nunca pediu para ser lembrado.&rdquo;
+              </p>
+              <footer
+                className="mt-3 text-xs small-caps tracking-[0.12em]"
+                style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
+              >
+                — Fragmento do Códice de Valerius, Terceira Era
+              </footer>
+            </>
+          )}
         </blockquote>
 
         <div
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs mb-4"
           style={{ color: "var(--secondary-ink)" }}
         >
-          <span className="small-caps tracking-[0.1em]">
-            ✦ Transcrição da Mesa
-          </span>
-          <span className="small-caps tracking-[0.1em]">
-            ✧ Campanha: {campaign.title}
-          </span>
+          {isLaeylaTaleBody ? (
+            <>
+              <span className="small-caps tracking-[0.1em]">✦ Conto</span>
+              {tale!.worldLabel ? (
+                <span className="small-caps tracking-[0.1em]">
+                  ✧ Mundo: {tale!.worldLabel}
+                </span>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <span className="small-caps tracking-[0.1em]">
+                ✦ Transcrição da Mesa
+              </span>
+              <span className="small-caps tracking-[0.1em]">
+                ✧ Campanha: {campaign!.title}
+              </span>
+            </>
+          )}
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-2">
-          {["Fantasia Alta", "Prólogo", "Mundo de Azü"].map((tag) => (
+          {(isLaeylaTaleBody
+            ? tale!.tags
+            : ["Fantasia Alta", "Prólogo", "Mundo de Azü"]
+          ).map((tag) => (
             <span
               key={tag}
               className="text-xs px-3 py-1 rounded-sm"
@@ -414,6 +519,33 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
       <Divider symbol="✦" />
 
       <div className="max-w-5xl mx-auto px-6 pb-16 relative">
+        {isLaeylaTaleBody ? (
+          <>
+            <div className="max-w-3xl mx-auto mb-16">
+              <LaeylaNarrativeBody />
+            </div>
+            <section>
+              <div className="min-w-0 order-1 flex w-full justify-center">
+                <div className="flex max-w-3xl flex-col items-center text-center">
+                  <Divider symbol="✦" compact />
+                  <p
+                    className="text-sm italic"
+                    style={{ color: "var(--secondary-ink)" }}
+                  >
+                    Trecho arquivado nos tomos deste conto — a jornada de Läyla
+                    continua além destas páginas.
+                  </p>
+                </div>
+              </div>
+              {/* <div className="order-2">
+                <SectionAside alignBottom>
+                  <AboutTaleCard tale={tale!} />
+                </SectionAside>
+              </div> */}
+            </section>
+          </>
+        ) : (
+          <>
         {/* Seção 1 — Nota de Lore (some ao fim deste bloco) */}
         <section className={narrativeSectionClassName()}>
           <div className="min-w-0 drop-cap order-1">
@@ -467,7 +599,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
             </p>
 
             <figure className="my-12">
-              <div className="relative w-full aspect-[16/10] rounded-sm overflow-hidden">
+              <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden">
                 <Image
                   src="/assets/illustrations/ryan-smith-highresscreenshot00001.jpg"
                   alt="Uma estrutura de pedra antiga erguida sob luz esverdeada"
@@ -533,7 +665,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
         </section>
 
         {/* Seção 4 — Sobre a Campanha + navegação em largura total */}
-        <section className={narrativeSectionClassName()}>
+        <section className={narrativeSectionClassName("end")}>
           <div className="min-w-0 order-1">
             <Divider symbol="✦" compact />
             <p
@@ -545,20 +677,88 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
             </p>
           </div>
           <div className="order-2">
-            <SectionAside>
-              <AboutCampaignCard campaign={campaign} />
+            <SectionAside alignBottom>
+              <AboutCampaignCard campaign={campaign!} />
             </SectionAside>
           </div>
         </section>
+          </>
+        )}
 
-        <nav className="flex items-stretch gap-4 mt-4 max-w-3xl">
-          {prevChapter ? (
+        <nav className="flex items-stretch gap-9 mt-4">
+          {isTale ? (
+            <>
+              <Link href="/contos" className="flex-1 group">
+                <div
+                  className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                  style={{
+                    backgroundColor: "var(--card)",
+                    borderColor: "var(--border)",
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <ChevronLeft
+                      size={14}
+                      style={{ color: "var(--accent-gold)" }}
+                    />
+                    <span
+                      className="text-xs small-caps tracking-[0.1em]"
+                      style={{ color: "var(--secondary-ink)" }}
+                    >
+                      Voltar
+                    </span>
+                  </div>
+                  <p
+                    className="text-sm"
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      color: "var(--foreground)",
+                      marginBottom: 0,
+                    }}
+                  >
+                    Contos da Biblioteca
+                  </p>
+                </div>
+              </Link>
+              <div
+                className="flex-1 p-5 rounded-lg border"
+                style={{
+                  backgroundColor: "var(--card)",
+                  borderColor: "var(--border)",
+                  opacity: 0.6,
+                }}
+              >
+                <div className="flex items-center justify-end gap-2 mb-2">
+                  <span
+                    className="text-xs small-caps tracking-[0.1em]"
+                    style={{ color: "var(--secondary-ink)" }}
+                  >
+                    Fim
+                  </span>
+                  <ChevronRight
+                    size={14}
+                    style={{ color: "var(--secondary-ink)" }}
+                  />
+                </div>
+                <p
+                  className="text-sm italic text-right"
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    color: "var(--secondary-ink)",
+                    marginBottom: 0,
+                  }}
+                >
+                  Este conto encerra aqui.
+                </p>
+              </div>
+            </>
+          ) : prevChapter ? (
             <Link
-              href={`/azu/campaigns/${campaign.slug}/${prevChapter.slug}`}
+              href={`/azu/campaigns/${campaign!.slug}/${prevChapter.slug}`}
               className="flex-1 group"
             >
               <div
-                className="h-full p-5 rounded-lg border transition-colors duration-200 hover:border-[var(--accent-gold)]"
+                className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
@@ -590,11 +790,11 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
             </Link>
           ) : (
             <Link
-              href={`/azu/campaigns/${campaign.slug}`}
+              href={`/azu/campaigns/${campaign!.slug}`}
               className="flex-1 group"
             >
               <div
-                className="h-full p-5 rounded-lg border transition-colors duration-200 hover:border-[var(--accent-gold)]"
+                className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
@@ -620,19 +820,19 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
                     marginBottom: 0,
                   }}
                 >
-                  {campaign.title}
+                  {campaign!.title}
                 </p>
               </div>
             </Link>
           )}
 
-          {nextChapter ? (
+          {!isTale && nextChapter ? (
             <Link
-              href={`/azu/campaigns/${campaign.slug}/${nextChapter.slug}`}
+              href={`/azu/campaigns/${campaign!.slug}/${nextChapter.slug}`}
               className="flex-1 group"
             >
               <div
-                className="h-full p-5 rounded-lg border text-right transition-colors duration-200 hover:border-[var(--accent-gold)]"
+                className="relative h-full overflow-hidden p-5 rounded-lg border text-right shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
@@ -662,7 +862,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
                 </p>
               </div>
             </Link>
-          ) : (
+          ) : !isTale ? (
             <div
               className="flex-1 p-5 rounded-lg border"
               style={{
@@ -694,7 +894,7 @@ export function NarrativePage({ campaign, chapter }: NarrativePageProps) {
                 Em breve…
               </p>
             </div>
-          )}
+          ) : null}
         </nav>
       </div>
 
