@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Divider } from "@/components/narrative/Divider";
+import { NarrativeAppendix } from "@/components/narrative/NarrativeAppendix";
 import type { Campaign, CampaignChapter } from "@/lib/campaigns";
 import {
   type BibliotecaConto,
@@ -15,9 +16,10 @@ import { LaeylaNarrativeBody } from "@/components/campaign/LaeylaNarrativeBody";
 import {
   BookOpen,
   BookMarked,
-  MapPin,
+  ScrollText,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 
 export type NarrativePageProps =
@@ -38,7 +40,7 @@ function HeroMediaDisplay({
   const posClass = heroObjectPositionClass(objectPosition);
   return (
     <div
-      className="relative mx-auto aspect-[21/9] w-full max-h-[min(84vh,46rem)] overflow-hidden sm:max-h-[min(82vh,52rem)]"
+      className="relative mx-auto w-full max-h-[min(96vh,54rem)] overflow-hidden aspect-[4/3] min-h-[min(42vh,20rem)] sm:aspect-[21/9] sm:min-h-0 sm:max-h-[min(82vh,52rem)]"
       style={{ backgroundColor: "var(--hero-fade-base)" }}
     >
       {heroMedia.type === "video" ? (
@@ -106,10 +108,15 @@ function AsideCardFrame({ children }: { children: React.ReactNode }) {
 function LoreNoteCard() {
   return (
     <AsideCardFrame>
-      <div className="px-5 pt-5 pb-4">
+      <div className="px-5 pt-5 pb-5">
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
-            <MapPin size={16} style={{ color: "var(--accent-gold)" }} />
+            <ScrollText
+              size={16}
+              strokeWidth={1.65}
+              style={{ color: "var(--accent-gold)" }}
+              aria-hidden
+            />
             <span
               className="text-xs small-caps tracking-[0.1em]"
               style={{ color: "var(--secondary-ink)" }}
@@ -140,14 +147,6 @@ function LoreNoteCard() {
             O cheiro de ferro frio indica perturbação grave da azü local.
           </p>
         </div>
-      </div>
-      <div className="relative w-full aspect-[16/10] overflow-hidden">
-        <Image
-          src="/assets/illustrations/james-atkinson-shot4.jpg"
-          alt="Paisagem com veios de azü visíveis no solo"
-          fill
-          className="object-cover"
-        />
       </div>
     </AsideCardFrame>
   );
@@ -204,7 +203,12 @@ function MappedArtifactCard() {
   );
 }
 
-function AboutFulanoCard() {
+function AboutFulanoCard({
+  showAppendixNavIcon = false,
+}: {
+  /** Só no apêndice mobile: ícone que indica destino navegável. */
+  showAppendixNavIcon?: boolean;
+}) {
   return (
     <Link
       href="/azu/characters/seren-aelyra"
@@ -215,6 +219,22 @@ function AboutFulanoCard() {
       }}
       aria-label="Ver dossiê de Seren Aelyra"
     >
+      {showAppendixNavIcon ? (
+        <span
+          className="pointer-events-none absolute right-2.5 top-2.5 z-[1] flex h-7 w-7 items-center justify-center rounded-full lg:hidden"
+          style={{
+            backgroundColor:
+              "color-mix(in srgb, var(--accent-gold) 14%, var(--card))",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-gold) 32%, var(--border) 68%)",
+            color: "var(--accent-gold)",
+            boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
+          }}
+          aria-hidden
+        >
+          <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} />
+        </span>
+      ) : null}
       <div className="px-5 pt-5 pb-4 relative">
         <div className="flex gap-3 mb-4">
           <div
@@ -516,16 +536,23 @@ export function NarrativePage(props: NarrativePageProps) {
         </div>
       </header>
 
-      <Divider symbol="✦" />
+      <Divider symbol="✦" compact />
 
       <div className="max-w-5xl mx-auto px-6 pb-16 relative">
         {isLaeylaTaleBody ? (
           <>
+            <NarrativeAppendix
+              title="Apêndice"
+              openButtonAriaLabel="Abrir tomos do conto"
+            >
+              <AboutTaleCard tale={tale!} />
+            </NarrativeAppendix>
+            <div className="narrative-chapter-prose">
             <div className="max-w-3xl mx-auto mb-16">
               <LaeylaNarrativeBody />
             </div>
-            <section>
-              <div className="min-w-0 order-1 flex w-full justify-center">
+            <section className="lg:grid lg:grid-cols-[minmax(0,1fr)_min(100%,15rem)] xl:grid-cols-[minmax(0,1fr)_18rem] lg:gap-x-10 xl:gap-x-12 lg:items-start">
+              <div className="order-1 flex min-w-0 w-full justify-center lg:justify-start">
                 <div className="flex max-w-3xl flex-col items-center text-center">
                   <Divider symbol="✦" compact />
                   <p
@@ -537,15 +564,29 @@ export function NarrativePage(props: NarrativePageProps) {
                   </p>
                 </div>
               </div>
-              {/* <div className="order-2">
+              <div className="order-2 hidden lg:block">
                 <SectionAside alignBottom>
                   <AboutTaleCard tale={tale!} />
                 </SectionAside>
-              </div> */}
+              </div>
             </section>
+            </div>
           </>
         ) : (
           <>
+        {!isTale && campaign ? (
+          <NarrativeAppendix
+            title="Apêndice"
+            panelEyebrow="Tomos da crónica"
+            openButtonAriaLabel="Abrir tomos da crónica"
+          >
+            <LoreNoteCard />
+            <MappedArtifactCard />
+            <AboutFulanoCard showAppendixNavIcon />
+            <AboutCampaignCard campaign={campaign} />
+          </NarrativeAppendix>
+        ) : null}
+        <div className="narrative-chapter-prose">
         {/* Seção 1 — Nota de Lore (some ao fim deste bloco) */}
         <section className={narrativeSectionClassName()}>
           <div className="min-w-0 drop-cap order-1">
@@ -579,7 +620,7 @@ export function NarrativePage(props: NarrativePageProps) {
               Pequeno, de feitura refinada — porém trincado como teia.
             </p>
           </div>
-          <div className="order-2 lg:order-2">
+          <div className="order-2 hidden lg:block lg:order-2">
             <SectionAside>
               <LoreNoteCard />
             </SectionAside>
@@ -615,7 +656,7 @@ export function NarrativePage(props: NarrativePageProps) {
               </figcaption>
             </figure>
           </div>
-          <div className="order-2">
+          <div className="order-2 hidden lg:block">
             <SectionAside>
               <MappedArtifactCard />
             </SectionAside>
@@ -657,7 +698,7 @@ export function NarrativePage(props: NarrativePageProps) {
               E, a escuridão, restou.
             </p>
           </div>
-          <div className="order-2">
+          <div className="order-2 hidden lg:block">
             <SectionAside>
               <AboutFulanoCard />
             </SectionAside>
@@ -676,40 +717,42 @@ export function NarrativePage(props: NarrativePageProps) {
               seguirão na sequência da crônica.
             </p>
           </div>
-          <div className="order-2">
+          <div className="order-2 hidden lg:block">
             <SectionAside alignBottom>
               <AboutCampaignCard campaign={campaign!} />
             </SectionAside>
           </div>
         </section>
+        </div>
           </>
         )}
 
-        <nav className="flex items-stretch gap-9 mt-4">
+        <nav className="mt-4 grid min-w-0 grid-cols-2 gap-2 sm:gap-4 lg:gap-6">
           {isTale ? (
             <>
-              <Link href="/contos" className="flex-1 group">
+              <Link href="/contos" className="group flex min-h-0 min-w-0">
                 <div
-                  className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                  className="relative flex h-full min-h-0 w-full flex-col overflow-hidden rounded-md border px-2 py-2 shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:h-0 before:w-1 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                   style={{
                     backgroundColor: "var(--card)",
                     borderColor: "var(--border)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="mb-1 flex items-center gap-1 sm:mb-1.5 sm:gap-1.5">
                     <ChevronLeft
-                      size={14}
+                      className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                       style={{ color: "var(--accent-gold)" }}
+                      strokeWidth={1.75}
                     />
                     <span
-                      className="text-xs small-caps tracking-[0.1em]"
+                      className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                       style={{ color: "var(--secondary-ink)" }}
                     >
                       Voltar
                     </span>
                   </div>
                   <p
-                    className="text-sm"
+                    className="mt-auto text-xs leading-snug sm:text-sm"
                     style={{
                       fontFamily: "var(--font-heading)",
                       color: "var(--foreground)",
@@ -721,27 +764,28 @@ export function NarrativePage(props: NarrativePageProps) {
                 </div>
               </Link>
               <div
-                className="flex-1 p-5 rounded-lg border"
+                className="flex h-full min-h-0 min-w-0 flex-col rounded-md border px-2 py-2 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
                   opacity: 0.6,
                 }}
               >
-                <div className="flex items-center justify-end gap-2 mb-2">
+                <div className="mb-1 flex items-center justify-end gap-1 sm:mb-1.5 sm:gap-1.5">
                   <span
-                    className="text-xs small-caps tracking-[0.1em]"
+                    className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                     style={{ color: "var(--secondary-ink)" }}
                   >
                     Fim
                   </span>
                   <ChevronRight
-                    size={14}
+                    className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                     style={{ color: "var(--secondary-ink)" }}
+                    strokeWidth={1.75}
                   />
                 </div>
                 <p
-                  className="text-sm italic text-right"
+                  className="mt-auto text-right text-xs italic leading-snug sm:text-sm"
                   style={{
                     fontFamily: "var(--font-heading)",
                     color: "var(--secondary-ink)",
@@ -755,29 +799,30 @@ export function NarrativePage(props: NarrativePageProps) {
           ) : prevChapter ? (
             <Link
               href={`/azu/campaigns/${campaign!.slug}/${prevChapter.slug}`}
-              className="flex-1 group"
+              className="group flex min-h-0 min-w-0"
             >
               <div
-                className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                className="relative flex h-full min-h-0 w-full flex-col overflow-hidden rounded-md border px-2 py-2 shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:h-0 before:w-1 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
                 }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="mb-1 flex items-center gap-1 sm:mb-1.5 sm:gap-1.5">
                   <ChevronLeft
-                    size={14}
+                    className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                     style={{ color: "var(--accent-gold)" }}
+                    strokeWidth={1.75}
                   />
                   <span
-                    className="text-xs small-caps tracking-[0.1em]"
+                    className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                     style={{ color: "var(--secondary-ink)" }}
                   >
                     Anterior
                   </span>
                 </div>
                 <p
-                  className="text-sm"
+                  className="mt-auto line-clamp-3 text-xs leading-snug sm:text-sm"
                   style={{
                     fontFamily: "var(--font-heading)",
                     color: "var(--foreground)",
@@ -791,29 +836,30 @@ export function NarrativePage(props: NarrativePageProps) {
           ) : (
             <Link
               href={`/azu/campaigns/${campaign!.slug}`}
-              className="flex-1 group"
+              className="group flex min-h-0 min-w-0"
             >
               <div
-                className="relative h-full overflow-hidden p-5 rounded-lg border shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                className="relative flex h-full min-h-0 w-full flex-col overflow-hidden rounded-md border px-2 py-2 shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:h-0 before:w-1 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
                 }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="mb-1 flex items-center gap-1 sm:mb-1.5 sm:gap-1.5">
                   <ChevronLeft
-                    size={14}
+                    className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                     style={{ color: "var(--accent-gold)" }}
+                    strokeWidth={1.75}
                   />
                   <span
-                    className="text-xs small-caps tracking-[0.1em]"
+                    className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                     style={{ color: "var(--secondary-ink)" }}
                   >
                     Voltar
                   </span>
                 </div>
                 <p
-                  className="text-sm"
+                  className="mt-auto line-clamp-3 text-xs leading-snug sm:text-sm"
                   style={{
                     fontFamily: "var(--font-heading)",
                     color: "var(--foreground)",
@@ -829,29 +875,30 @@ export function NarrativePage(props: NarrativePageProps) {
           {!isTale && nextChapter ? (
             <Link
               href={`/azu/campaigns/${campaign!.slug}/${nextChapter.slug}`}
-              className="flex-1 group"
+              className="group flex min-h-0 min-w-0"
             >
               <div
-                className="relative h-full overflow-hidden p-5 rounded-lg border text-right shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:w-1.5 before:h-0 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
+                className="relative flex h-full min-h-0 w-full flex-col overflow-hidden rounded-md border px-2 py-2 text-right shadow-none translate-y-0 transition duration-300 ease-out motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5 group-hover:-translate-y-0.5 group-hover:shadow-md before:absolute before:left-0 before:top-0 before:h-0 before:w-1 before:bg-[var(--accent-gold)] before:transition-all before:duration-300 before:ease-out group-hover:before:h-full"
                 style={{
                   backgroundColor: "var(--card)",
                   borderColor: "var(--border)",
                 }}
               >
-                <div className="flex items-center justify-end gap-2 mb-2">
+                <div className="mb-1 flex items-center justify-end gap-1 sm:mb-1.5 sm:gap-1.5">
                   <span
-                    className="text-xs small-caps tracking-[0.1em]"
+                    className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                     style={{ color: "var(--secondary-ink)" }}
                   >
                     Próximo
                   </span>
                   <ChevronRight
-                    size={14}
+                    className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                     style={{ color: "var(--accent-gold)" }}
+                    strokeWidth={1.75}
                   />
                 </div>
                 <p
-                  className="text-sm"
+                  className="mt-auto line-clamp-3 text-xs leading-snug sm:text-sm"
                   style={{
                     fontFamily: "var(--font-heading)",
                     color: "var(--foreground)",
@@ -864,27 +911,28 @@ export function NarrativePage(props: NarrativePageProps) {
             </Link>
           ) : !isTale ? (
             <div
-              className="flex-1 p-5 rounded-lg border"
+              className="flex h-full min-h-0 min-w-0 flex-col rounded-md border px-2 py-2 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5"
               style={{
                 backgroundColor: "var(--card)",
                 borderColor: "var(--border)",
                 opacity: 0.6,
               }}
             >
-              <div className="flex items-center justify-end gap-2 mb-2">
+              <div className="mb-1 flex items-center justify-end gap-1 sm:mb-1.5 sm:gap-1.5">
                 <span
-                  className="text-xs small-caps tracking-[0.1em]"
+                  className="text-[0.65rem] small-caps tracking-[0.1em] sm:text-xs"
                   style={{ color: "var(--secondary-ink)" }}
                 >
                   Próximo
                 </span>
                 <ChevronRight
-                  size={14}
+                  className="h-3.5 w-3.5 shrink-0 sm:h-[14px] sm:w-[14px]"
                   style={{ color: "var(--secondary-ink)" }}
+                  strokeWidth={1.75}
                 />
               </div>
               <p
-                className="text-sm italic text-right"
+                className="mt-auto text-right text-xs italic leading-snug sm:text-sm"
                 style={{
                   fontFamily: "var(--font-heading)",
                   color: "var(--secondary-ink)",

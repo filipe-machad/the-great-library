@@ -3,7 +3,7 @@ import Image from "next/image";
 function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
-      className="mt-14 mb-4 first:mt-0 text-xl"
+      className="mt-12 mb-3 first:mt-0 text-base font-normal sm:mt-14 sm:mb-4 sm:text-lg"
       style={{ fontFamily: "var(--font-heading)", color: "var(--foreground)" }}
     >
       {children}
@@ -14,7 +14,7 @@ function H2({ children }: { children: React.ReactNode }) {
 /** Conto transcrito a partir da página Notion «Läyla». */
 export function LaeylaNarrativeBody() {
   return (
-    <div className="min-w-0 [&_p]:mb-4 [&_p:last-child]:mb-0">
+    <div className="min-w-0 drop-cap">
       <H2>Prólogo</H2>
       <p>
         Um céu de densas e escuras nuvens, raios e uma tempestade impetuosa servem

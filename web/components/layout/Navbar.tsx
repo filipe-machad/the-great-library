@@ -45,10 +45,13 @@ export function Navbar({
             }
       }
     >
-      <div className="max-w-5xl mx-auto px-6 py-5 relative">
+      <div className="max-w-5xl mx-auto px-4 py-3 md:px-6 md:py-5 relative">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center shrink-0">
-            <SiteLogo className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-[0.88]" />
+          <Link
+            href="/"
+            className="group flex min-w-0 flex-1 items-center md:flex-initial md:shrink-0"
+          >
+            <SiteLogo className="h-7 w-full min-w-0 md:h-8 md:w-auto transition-opacity duration-200 group-hover:opacity-[0.88]" />
           </Link>
 
           {/* Desktop: Sobre a Biblioteca + search */}
@@ -88,33 +91,33 @@ export function Navbar({
           </div>
 
           {/* Mobile toggle */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex md:hidden items-center gap-1.5 shrink-0">
             <button
               type="button"
               onClick={toggleTheme}
-              className="theme-toggle cursor-pointer p-2"
+              className="theme-toggle cursor-pointer p-1.5"
               style={{ color: "var(--link-color)" }}
               aria-label={resolvedTheme === "dark" ? "Modo claro" : "Modo escuro"}
             >
-              {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             {onSearchOpen && (
               <button
                 onClick={onSearchOpen}
-                className="p-2"
+                className="p-1.5"
                 style={{ color: "var(--link-color)" }}
                 aria-label={t("search")}
               >
-                <Search size={18} />
+                <Search size={16} />
               </button>
             )}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2"
+              className="p-1.5"
               style={{ color: "var(--foreground)" }}
               aria-label={t("menu")}
             >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
@@ -145,7 +148,7 @@ export function Navbar({
           }}
           aria-hidden={!mobileOpen}
         >
-          <div className="px-6 py-4 flex flex-col gap-3">
+          <div className="px-4 py-3 md:px-6 md:py-4 flex flex-col gap-2 md:gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

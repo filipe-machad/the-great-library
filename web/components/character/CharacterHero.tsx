@@ -17,8 +17,8 @@ export function CharacterHero({ frontmatter }: CharacterHeroProps) {
 
   return (
     <section className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12 mb-16">
-      {/* Portrait frame and gold accent */}
-      <div className="relative flex-shrink-0">
+      {/* Portrait frame and gold accent — mx-auto só em mobile alinha ao texto centrado abaixo */}
+      <div className="relative mx-auto shrink-0 sm:mx-0">
         <div
           className="relative w-48 h-56 sm:w-56 sm:h-64 overflow-hidden"
           style={{

@@ -51,10 +51,6 @@
   --footer-border: rgba(248, 245, 240, 0.15);
   --footer-foreground: #f8f5f0;
 
-  --neo-bg: var(--nav-bg);
-  --neo-shadow: rgba(26, 26, 26, 0.15);
-  --neo-highlight: rgba(255, 255, 255, 0.8);
-
   /* Cor sólida onde o fade do hero encontra o fundo (alinhada ao gradiente da página no escuro) */
   --hero-fade-base: var(--background);
 
@@ -120,10 +116,6 @@
   --footer-bg: #040403;
   --footer-border: rgba(240, 235, 227, 0.1);
   --footer-foreground: #ddd8cf;
-
-  --neo-bg: var(--nav-bg);
-  --neo-shadow: rgba(0, 0, 0, 0.75);
-  --neo-highlight: rgba(255, 255, 255, 0.08);
 
   /* Igual ao fundo inferior de --gradient-subtle, para o fade fundir com a página */
   --hero-fade-base: rgb(8, 7, 6);
@@ -279,33 +271,84 @@
 @layer components {
   .theme-toggle {
     border-radius: 9999px;
-    background-color: var(--neo-bg);
+    border: none;
+    background-color: transparent;
     color: var(--link-color);
-    /* Mesma estrutura de sombra em todos os estados para a transição animar */
-    box-shadow:
-      0 0 0 var(--neo-shadow),
-      0 0 0 var(--neo-highlight);
     transition:
-      transform 0.18s ease-in-out,
-      box-shadow 0.22s ease-in-out,
-      background-color 0.22s ease-in-out,
-      color 0.2s ease-in-out;
+      transform 0.14s ease,
+      background-color 0.18s ease,
+      box-shadow 0.18s ease,
+      color 0.14s ease,
+      backdrop-filter 0.18s ease;
   }
 
   .theme-toggle:hover {
-    background-color: var(--neo-bg);
-    /* Raised: sombra escura embaixo à direita, luz acima à esquerda */
+    background-color: color-mix(in srgb, var(--card) 64%, transparent);
+    backdrop-filter: blur(22px) saturate(1.45);
+    -webkit-backdrop-filter: blur(22px) saturate(1.45);
     box-shadow:
-      7px 7px 14px var(--neo-shadow),
-      -7px -7px 14px var(--neo-highlight);
+      0 10px 40px rgba(0, 0, 0, 0.07),
+      0 2px 12px color-mix(in srgb, var(--accent-gold) 12%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--foreground) 11%, transparent);
+  }
+
+  .dark .theme-toggle:hover {
+    background-color: color-mix(in srgb, var(--card) 52%, transparent);
+    box-shadow:
+      0 14px 48px rgba(0, 0, 0, 0.42),
+      0 2px 16px color-mix(in srgb, var(--accent-gold) 8%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--foreground) 16%, transparent);
   }
 
   .theme-toggle:active {
-    transform: translateY(1px);
-    /* Pressed: mesma técnica com outset, valores menores = “afundado” */
+    transform: scale(0.96);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: none;
     box-shadow:
-      3px 3px 6px var(--neo-shadow),
-      -3px -3px 6px var(--neo-highlight);
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in srgb, var(--accent-gold) 45%, transparent);
+  }
+
+  .theme-toggle:focus-visible:hover {
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.07),
+      0 2px 12px color-mix(in srgb, var(--accent-gold) 12%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--foreground) 11%, transparent),
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in srgb, var(--accent-gold) 45%, transparent);
+  }
+
+  .dark .theme-toggle:focus-visible:hover {
+    box-shadow:
+      0 14px 48px rgba(0, 0, 0, 0.42),
+      0 2px 16px color-mix(in srgb, var(--accent-gold) 8%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--foreground) 16%, transparent),
+      0 0 0 2px var(--background),
+      0 0 0 4px color-mix(in srgb, var(--accent-gold) 45%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle:hover,
+    .theme-toggle:active {
+      transition-duration: 0.01ms;
+    }
+
+    .theme-toggle:active {
+      transform: none;
+    }
+  }
+
+  /* Apêndice mobile: scroll sem barra visível (Firefox / WebKit / IE legado) */
+  .narrative-appendix-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .narrative-appendix-scroll::-webkit-scrollbar {
+    display: none;
   }
 
   .small-caps {
@@ -322,5 +365,88 @@
     padding-top: 0.05em;
     color: var(--foreground);
     font-weight: 400;
+  }
+
+  /**
+   * Corpo após o ✦: Spectral (--font-spectral-narrative).
+   * Capitular: Italianno (--font-italianno-initial), só no primeiro parágrafo com .drop-cap.
+   */
+  .narrative-chapter-prose {
+    font-family: var(--font-spectral-narrative), "Spectral", "Crimson Text", Georgia, serif;
+    font-size: 0.8125rem;
+    line-height: 1.76;
+    font-weight: 300;
+    font-optical-sizing: auto;
+  }
+
+  @media (min-width: 640px) {
+    .narrative-chapter-prose {
+      font-size: 0.9375rem;
+      line-height: 1.74;
+      font-weight: 400;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .narrative-chapter-prose {
+      font-size: 1rem;
+    }
+  }
+
+  /* Escuro: traço mais fino que no claro (lá o sm+ usa 400); compensa o “engrossar” óptico em fundo preto. */
+  .dark .narrative-chapter-prose {
+    color: color-mix(in srgb, var(--foreground) 94%, var(--background) 6%);
+    font-weight: 200;
+  }
+
+  @media (min-width: 640px) {
+    .dark .narrative-chapter-prose {
+      font-weight: 300;
+    }
+  }
+
+  .narrative-chapter-prose p {
+    line-height: inherit;
+    margin-bottom: 1.125rem;
+  }
+
+  .narrative-chapter-prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  .narrative-chapter-prose h2 {
+    font-weight: 400;
+  }
+
+  .dark .narrative-chapter-prose h2 {
+    font-weight: 300;
+  }
+
+  .narrative-chapter-prose strong {
+    font-weight: 400;
+    color: color-mix(in srgb, var(--accent-gold) 72%, var(--foreground) 28%);
+  }
+
+  .dark .narrative-chapter-prose strong {
+    color: color-mix(in srgb, var(--accent-gold) 58%, var(--foreground) 42%);
+  }
+
+  .narrative-chapter-prose .drop-cap > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-italianno-initial), "Italianno", cursive;
+    font-size: 3.35rem;
+    line-height: 0.72;
+    padding-right: 0.12em;
+    padding-top: 0.06em;
+    margin-right: 0.02em;
+    color: color-mix(in srgb, var(--accent-gold) 88%, var(--foreground) 12%);
+    font-weight: 400;
+  }
+
+  @media (min-width: 640px) {
+    .narrative-chapter-prose .drop-cap > p:first-of-type::first-letter {
+      font-size: 4rem;
+      line-height: 0.7;
+    }
   }
 }

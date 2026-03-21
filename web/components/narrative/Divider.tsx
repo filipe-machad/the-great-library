@@ -6,7 +6,8 @@ interface DividerProps {
 }
 
 export function Divider({ symbol, bounce = false, compact = false }: DividerProps) {
-  const marginY = compact ? "my-6" : "my-16";
+  /* `compact`: menos espaço vertical (narrativa / ✦ entre blocos); mobile ainda mais apertado. */
+  const marginY = compact ? "my-3 sm:my-6" : "my-16";
   return (
     <div
       className={`flex items-center justify-center ${marginY}${
