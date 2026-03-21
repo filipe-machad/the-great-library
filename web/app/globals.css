@@ -55,18 +55,22 @@
   --neo-shadow: rgba(26, 26, 26, 0.15);
   --neo-highlight: rgba(255, 255, 255, 0.8);
 
+  /* Cor sólida onde o fade do hero encontra o fundo (alinhada ao gradiente da página no escuro) */
+  --hero-fade-base: var(--background);
+
   /* Fade no rodapé do hero — muitas paradas, curva muito suave */
+  /* Última parada: alpha 0 da mesma cor que --hero-fade-base (evita artefacto “cinzento” de interpolar para `transparent`) */
   --hero-media-fade: linear-gradient(
     to top,
-    var(--background) 0%,
-    color-mix(in srgb, var(--background) 95%, transparent) 6%,
-    color-mix(in srgb, var(--background) 82%, transparent) 14%,
-    color-mix(in srgb, var(--background) 64%, transparent) 24%,
-    color-mix(in srgb, var(--background) 46%, transparent) 36%,
-    color-mix(in srgb, var(--background) 30%, transparent) 50%,
-    color-mix(in srgb, var(--background) 16%, transparent) 64%,
-    color-mix(in srgb, var(--background) 6%, transparent) 80%,
-    transparent 100%
+    var(--hero-fade-base) 0%,
+    color-mix(in srgb, var(--hero-fade-base) 95%, transparent) 6%,
+    color-mix(in srgb, var(--hero-fade-base) 82%, transparent) 14%,
+    color-mix(in srgb, var(--hero-fade-base) 64%, transparent) 24%,
+    color-mix(in srgb, var(--hero-fade-base) 46%, transparent) 36%,
+    color-mix(in srgb, var(--hero-fade-base) 30%, transparent) 50%,
+    color-mix(in srgb, var(--hero-fade-base) 16%, transparent) 64%,
+    color-mix(in srgb, var(--hero-fade-base) 6%, transparent) 80%,
+    rgb(from var(--hero-fade-base) r g b / 0) 100%
   );
 }
 
@@ -121,25 +125,44 @@
   --neo-shadow: rgba(0, 0, 0, 0.75);
   --neo-highlight: rgba(255, 255, 255, 0.08);
 
+  /* Igual ao fundo inferior de --gradient-subtle, para o fade fundir com a página */
+  --hero-fade-base: rgb(8, 7, 6);
+
   /* Tema escuro: gradiente ainda mais longo e gradual */
   --hero-media-fade: linear-gradient(
     to top,
-    var(--background) 0%,
-    color-mix(in srgb, var(--background) 97%, transparent) 5%,
-    color-mix(in srgb, var(--background) 88%, transparent) 12%,
-    color-mix(in srgb, var(--background) 74%, transparent) 22%,
-    color-mix(in srgb, var(--background) 56%, transparent) 34%,
-    color-mix(in srgb, var(--background) 38%, transparent) 46%,
-    color-mix(in srgb, var(--background) 22%, transparent) 58%,
-    color-mix(in srgb, var(--background) 10%, transparent) 72%,
-    color-mix(in srgb, var(--background) 3%, transparent) 86%,
-    transparent 100%
+    var(--hero-fade-base) 0%,
+    var(--hero-fade-base) 3%,
+    color-mix(in srgb, var(--hero-fade-base) 97%, transparent) 8%,
+    color-mix(in srgb, var(--hero-fade-base) 88%, transparent) 14%,
+    color-mix(in srgb, var(--hero-fade-base) 74%, transparent) 24%,
+    color-mix(in srgb, var(--hero-fade-base) 56%, transparent) 36%,
+    color-mix(in srgb, var(--hero-fade-base) 38%, transparent) 48%,
+    color-mix(in srgb, var(--hero-fade-base) 22%, transparent) 60%,
+    color-mix(in srgb, var(--hero-fade-base) 10%, transparent) 74%,
+    color-mix(in srgb, var(--hero-fade-base) 3%, transparent) 88%,
+    rgb(from var(--hero-fade-base) r g b / 0) 100%
   );
 }
 
 .dark .noise-overlay {
   mix-blend-mode: screen;
   opacity: 0.04 !important;
+}
+
+/* Contos / capítulos: no escuro o radial global nunca coincide com a base do hero em toda a largura; fundo fixo à viewport alinha com --hero-fade-base. */
+.narrative-page-shell {
+  background: var(--gradient-subtle);
+}
+
+.dark .narrative-page-shell {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 12, 10, 1) 0%,
+    rgb(8, 7, 6) 52vh,
+    rgb(8, 7, 6) 100%
+  );
+  background-attachment: fixed;
 }
 
 @theme inline {

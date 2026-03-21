@@ -11,7 +11,14 @@ const navLinks = [
   { href: "/lore", key: "about" },
 ] as const;
 
-export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
+export function Navbar({
+  onSearchOpen,
+  overHero = false,
+}: {
+  onSearchOpen?: () => void;
+  /** Barra sobre hero em ecrã inteiro: posição absoluta e fundo semitransparente com blur. */
+  overHero?: boolean;
+}) {
   const t = useTranslations("nav");
   const tFooter = useTranslations("footer.links");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,11 +28,22 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
 
   return (
     <nav
-      className="border-b sticky top-0 z-50 backdrop-blur-sm"
-      style={{
-        borderColor: "var(--divider)",
-        backgroundColor: "var(--nav-bg)",
-      }}
+      className={
+        overHero
+          ? "border-b absolute top-0 left-0 right-0 z-50 backdrop-blur-md backdrop-saturate-150"
+          : "border-b sticky top-0 z-50 backdrop-blur-sm"
+      }
+      style={
+        overHero
+          ? {
+              borderColor: "color-mix(in srgb, var(--divider) 42%, transparent)",
+              backgroundColor: "color-mix(in srgb, var(--nav-bg) 46%, transparent)",
+            }
+          : {
+              borderColor: "var(--divider)",
+              backgroundColor: "var(--nav-bg)",
+            }
+      }
     >
       <div className="max-w-5xl mx-auto px-6 py-5 relative">
         <div className="flex items-center justify-between">
@@ -115,7 +133,11 @@ export function Navbar({ onSearchOpen }: { onSearchOpen?: () => void }) {
               : "",
           ].join(" ")}
           style={{
-            backgroundColor: "var(--nav-bg)",
+            backgroundColor: overHero
+              ? "color-mix(in srgb, var(--nav-bg) 52%, transparent)"
+              : "var(--nav-bg)",
+            backdropFilter: overHero ? "blur(12px)" : undefined,
+            WebkitBackdropFilter: overHero ? "blur(12px)" : undefined,
             // Avoid double dividers; only add a separator when open
             borderBottom: mobileOpen
               ? "1px solid color-mix(in srgb, var(--accent-gold) 28%, var(--divider) 72%)"

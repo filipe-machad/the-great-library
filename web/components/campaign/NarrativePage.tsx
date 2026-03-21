@@ -37,7 +37,10 @@ function HeroMediaDisplay({
 }) {
   const posClass = heroObjectPositionClass(objectPosition);
   return (
-    <div className="relative mx-auto aspect-[21/9] w-full max-h-[min(52vh,28rem)] overflow-hidden sm:max-h-[min(58vh,32rem)]">
+    <div
+      className="relative mx-auto aspect-[21/9] w-full max-h-[min(84vh,46rem)] overflow-hidden sm:max-h-[min(82vh,52rem)]"
+      style={{ backgroundColor: "var(--hero-fade-base)" }}
+    >
       {heroMedia.type === "video" ? (
         <video
           src={heroMedia.src}
@@ -375,10 +378,7 @@ export function NarrativePage(props: NarrativePageProps) {
   const backLabel = isTale ? "Contos" : campaign!.title;
 
   return (
-    <div
-      className="min-h-screen relative"
-      style={{ background: "var(--gradient-subtle)" }}
-    >
+    <div className="min-h-screen relative narrative-page-shell">
       <div
         className="noise-overlay fixed inset-0 pointer-events-none"
         style={{
@@ -389,7 +389,7 @@ export function NarrativePage(props: NarrativePageProps) {
         }}
       />
 
-      <Navbar />
+      <Navbar overHero={hasHeroMedia} />
 
       {heroMedia ? (
         <HeroMediaDisplay
@@ -402,7 +402,7 @@ export function NarrativePage(props: NarrativePageProps) {
       <header
         className={`max-w-3xl mx-auto px-6 pb-4 relative z-10 ${
           hasHeroMedia
-            ? "-mt-[clamp(4rem,12vw,7.75rem)] pt-3 sm:pt-1"
+            ? "-mt-[clamp(5.25rem,15vw,9.25rem)] pt-1 sm:pt-0"
             : "pt-8"
         }`}
       >
