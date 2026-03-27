@@ -19,6 +19,11 @@ export interface CampaignChapter {
    * O slug identifica o componente de corpo em `NarrativePage`.
    */
   narrativeOnly?: boolean;
+  /**
+   * Texto corrido somente: sem apêndice, sem aside e sem figuras embutidas
+   * (os cards continuam definidos no código para uso noutros capítulos).
+   */
+  textOnlyNarrative?: boolean;
 }
 
 export interface Campaign {
@@ -52,6 +57,7 @@ const campaigns: Campaign[] = [
           type: "video",
           src: "/assets/videos/crystal-grave-of-a-warrior-WIDE-live.mp4",
         },
+        textOnlyNarrative: true,
       },
       {
         slug: "prologo-ii-calculo-das-sombras",

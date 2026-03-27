@@ -365,9 +365,17 @@ function AboutTaleCard({ tale }: { tale: BibliotecaConto }) {
   );
 }
 
-function narrativeSectionClassName(align: "start" | "end" = "start") {
-  /* Margens moderadas: secções só existem pelo layout (sticky); evita “vão” entre parágrafos adjacentes.
-     `end`: última linha da coluna principal alinha ao fundo do card lateral (mesma baseline visual). */
+function narrativeSectionClassName({
+  align = "start",
+  textOnly = false,
+}: {
+  align?: "start" | "end";
+  /** Sem grelha nem coluna lateral — só o fluxo do texto. */
+  textOnly?: boolean;
+} = {}) {
+  if (textOnly) {
+    return "mb-1 lg:mb-1 last:mb-0";
+  }
   const alignItems = align === "end" ? "lg:items-end" : "lg:items-start";
   return `lg:grid lg:grid-cols-[minmax(0,1fr)_min(100%,15rem)] xl:grid-cols-[minmax(0,1fr)_18rem] gap-x-10 xl:gap-x-12 ${alignItems} mb-1 lg:mb-1 last:mb-0`;
 }
@@ -396,6 +404,8 @@ export function NarrativePage(props: NarrativePageProps) {
   const isLaeylaTaleBody = isTale && tale!.body === "laeyla";
   const isCampaignNarrativeOnly =
     !isTale && chapter!.narrativeOnly === true;
+  const isCampaignTextOnly =
+    !isTale && chapter!.textOnlyNarrative === true;
 
   const backHref = isTale ? "/contos" : `/azu/campaigns/${campaign!.slug}`;
   const backLabel = isTale ? "Contos" : campaign!.title;
@@ -600,7 +610,7 @@ export function NarrativePage(props: NarrativePageProps) {
           </div>
         ) : isTale ? null : (
           <>
-        {!isTale && campaign ? (
+        {!isCampaignTextOnly && !isTale && campaign ? (
           <NarrativeAppendix
             title="Apêndice"
             panelEyebrow="Tomos da crónica"
@@ -613,8 +623,17 @@ export function NarrativePage(props: NarrativePageProps) {
           </NarrativeAppendix>
         ) : null}
         <div className="narrative-chapter-prose">
+        <div
+          className={
+            isCampaignTextOnly ? "max-w-3xl mx-auto mb-16" : "contents"
+          }
+        >
         {/* Seção 1 — Nota de Lore (some ao fim deste bloco) */}
-        <section className={narrativeSectionClassName()}>
+        <section
+          className={narrativeSectionClassName({
+            textOnly: isCampaignTextOnly,
+          })}
+        >
           <div className="min-w-0 drop-cap order-1">
             <p>
               Uma escuridão irregular e amorfa, pesada, alargava-se sobre campo
@@ -646,15 +665,21 @@ export function NarrativePage(props: NarrativePageProps) {
               Pequeno, de feitura refinada — porém trincado como teia.
             </p>
           </div>
-          <div className="order-2 hidden lg:block lg:order-2">
-            <SectionAside>
-              <LoreNoteCard />
-            </SectionAside>
-          </div>
+          {!isCampaignTextOnly ? (
+            <div className="order-2 hidden lg:block lg:order-2">
+              <SectionAside>
+                <LoreNoteCard />
+              </SectionAside>
+            </div>
+          ) : null}
         </section>
 
         {/* Seção 2 — Artefato Mapeado */}
-        <section className={narrativeSectionClassName()}>
+        <section
+          className={narrativeSectionClassName({
+            textOnly: isCampaignTextOnly,
+          })}
+        >
           <div className="min-w-0 order-1">
             <Divider symbol="✧" compact />
 
@@ -665,32 +690,40 @@ export function NarrativePage(props: NarrativePageProps) {
               que antes respiravam no chão estavam, no reflexo do espelho, mortos.
             </p>
 
-            <figure className="my-12">
-              <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden">
-                <Image
-                  src="/assets/illustrations/ryan-smith-highresscreenshot00001.jpg"
-                  alt="Uma estrutura de pedra antiga erguida sob luz esverdeada"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <figcaption
-                className="mt-3 text-center text-xs italic"
-                style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
-              >
-                A estrutura de pedra na zona de convergência — gravura anônima.
-              </figcaption>
-            </figure>
+            {!isCampaignTextOnly ? (
+              <figure className="my-12">
+                <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden">
+                  <Image
+                    src="/assets/illustrations/ryan-smith-highresscreenshot00001.jpg"
+                    alt="Uma estrutura de pedra antiga erguida sob luz esverdeada"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption
+                  className="mt-3 text-center text-xs italic"
+                  style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
+                >
+                  A estrutura de pedra na zona de convergência — gravura anônima.
+                </figcaption>
+              </figure>
+            ) : null}
           </div>
-          <div className="order-2 hidden lg:block">
-            <SectionAside>
-              <MappedArtifactCard />
-            </SectionAside>
-          </div>
+          {!isCampaignTextOnly ? (
+            <div className="order-2 hidden lg:block">
+              <SectionAside>
+                <MappedArtifactCard />
+              </SectionAside>
+            </div>
+          ) : null}
         </section>
 
         {/* Seção 3 — Sobre Fulano */}
-        <section className={narrativeSectionClassName()}>
+        <section
+          className={narrativeSectionClassName({
+            textOnly: isCampaignTextOnly,
+          })}
+        >
           <div className="min-w-0 order-1">
             <p>Um calafrio. Em imediato, pânico.
               As mãos trêmulas tatearam até encontrar uma fresta entre as rochas.
@@ -724,15 +757,22 @@ export function NarrativePage(props: NarrativePageProps) {
               E, a escuridão, restou.
             </p>
           </div>
-          <div className="order-2 hidden lg:block">
-            <SectionAside>
-              <AboutFulanoCard />
-            </SectionAside>
-          </div>
+          {!isCampaignTextOnly ? (
+            <div className="order-2 hidden lg:block">
+              <SectionAside>
+                <AboutFulanoCard />
+              </SectionAside>
+            </div>
+          ) : null}
         </section>
 
         {/* Seção 4 — Sobre a Campanha + navegação em largura total */}
-        <section className={narrativeSectionClassName("end")}>
+        <section
+          className={narrativeSectionClassName({
+            align: "end",
+            textOnly: isCampaignTextOnly,
+          })}
+        >
           <div className="min-w-0 order-1">
             <Divider symbol="✦" compact />
             <p
@@ -743,12 +783,15 @@ export function NarrativePage(props: NarrativePageProps) {
               seguirão na sequência da crônica.
             </p>
           </div>
-          <div className="order-2 hidden lg:block">
-            <SectionAside alignBottom>
-              <AboutCampaignCard campaign={campaign!} />
-            </SectionAside>
-          </div>
+          {!isCampaignTextOnly ? (
+            <div className="order-2 hidden lg:block">
+              <SectionAside alignBottom>
+                <AboutCampaignCard campaign={campaign!} />
+              </SectionAside>
+            </div>
+          ) : null}
         </section>
+        </div>
         </div>
           </>
         )}
