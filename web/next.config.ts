@@ -42,6 +42,12 @@ const nextConfig: NextConfig = {
         destination: "/contos/laeyla",
         permanent: true,
       },
+      {
+        source: "/contos/prologo-ii-calculo-das-sombras",
+        destination:
+          "/azu/campaigns/o-sonho-de-deus/prologo-ii-calculo-das-sombras",
+        permanent: true,
+      },
     ];
   },
 };

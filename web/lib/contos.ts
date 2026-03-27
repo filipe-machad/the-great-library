@@ -30,6 +30,13 @@ export interface BibliotecaConto {
   worldLabel?: string;
   /** Corpo narrativo a renderizar. */
   body: "laeyla";
+  /**
+   * Sem apêndice mobile nem coluna de cards (apenas texto após o ✦).
+   * Läyla usa layout completo com tomos.
+   */
+  soloLayout?: boolean;
+  /** Epígrafe opcional sob o título (blockquote). */
+  epigraph?: string;
   tags: string[];
 }
 

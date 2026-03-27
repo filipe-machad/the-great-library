@@ -13,6 +13,7 @@ import {
   type HeroObjectPosition,
 } from "@/lib/contos";
 import { LaeylaNarrativeBody } from "@/components/campaign/LaeylaNarrativeBody";
+import { CalculoDasSombrasBody } from "@/components/campaign/CalculoDasSombrasBody";
 import {
   BookOpen,
   BookMarked,
@@ -393,6 +394,8 @@ export function NarrativePage(props: NarrativePageProps) {
   const displayTitle = isTale ? tale!.title : chapter!.title;
 
   const isLaeylaTaleBody = isTale && tale!.body === "laeyla";
+  const isCampaignNarrativeOnly =
+    !isTale && chapter!.narrativeOnly === true;
 
   const backHref = isTale ? "/contos" : `/azu/campaigns/${campaign!.slug}`;
   const backLabel = isTale ? "Contos" : campaign!.title;
@@ -415,7 +418,9 @@ export function NarrativePage(props: NarrativePageProps) {
         <HeroMediaDisplay
           heroMedia={heroMedia}
           altTitle={displayTitle}
-          objectPosition={isTale ? tale!.heroObjectPosition : undefined}
+          objectPosition={
+            isTale ? tale!.heroObjectPosition : chapter!.heroObjectPosition
+          }
         />
       ) : null}
 
@@ -462,41 +467,50 @@ export function NarrativePage(props: NarrativePageProps) {
           </h1>
         </div>
 
-        <blockquote className="text-center mb-8 max-w-xl mx-auto">
-          {isLaeylaTaleBody ? (
-            <>
+        {isLaeylaTaleBody ? (
+          <blockquote className="text-center mb-8 max-w-xl mx-auto">
+            <p
+              className="italic text-lg leading-relaxed"
+              style={{ color: "var(--secondary-ink)" }}
+            >
+              — Apenas <strong style={{ color: "var(--accent-gold)" }}>Läyla</strong>.
+              — Retrucou, indiferente.
+            </p>
+          </blockquote>
+        ) : isTale ? (
+          tale!.epigraph ? (
+            <blockquote className="text-center mb-8 max-w-xl mx-auto">
               <p
                 className="italic text-lg leading-relaxed"
                 style={{ color: "var(--secondary-ink)" }}
               >
-                — Apenas <strong style={{ color: "var(--accent-gold)" }}>Läyla</strong>.
-                — Retrucou, indiferente.
+                {tale!.epigraph}
               </p>
-            </>
-          ) : (
-            <>
-              <p
-                className="italic text-lg leading-relaxed"
-                style={{ color: "var(--secondary-ink)" }}
-              >
-                &ldquo;Onde a luz do chão se apaga, o que resta é a memória daquilo
-                que nunca pediu para ser lembrado.&rdquo;
-              </p>
-              <footer
-                className="mt-3 text-xs small-caps tracking-[0.12em]"
-                style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
-              >
-                — Fragmento do Códice de Valerius, Terceira Era
-              </footer>
-            </>
-          )}
-        </blockquote>
+            </blockquote>
+          ) : null
+        ) : isCampaignNarrativeOnly ? null : (
+          <blockquote className="text-center mb-8 max-w-xl mx-auto">
+            <p
+              className="italic text-lg leading-relaxed"
+              style={{ color: "var(--secondary-ink)" }}
+            >
+              &ldquo;Onde a luz do chão se apaga, o que resta é a memória daquilo
+              que nunca pediu para ser lembrado.&rdquo;
+            </p>
+            <footer
+              className="mt-3 text-xs small-caps tracking-[0.12em]"
+              style={{ color: "var(--secondary-ink)", opacity: 0.7 }}
+            >
+              — Fragmento do Códice de Valerius, Terceira Era
+            </footer>
+          </blockquote>
+        )}
 
         <div
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs mb-4"
           style={{ color: "var(--secondary-ink)" }}
         >
-          {isLaeylaTaleBody ? (
+          {isTale ? (
             <>
               <span className="small-caps tracking-[0.1em]">✦ Conto</span>
               {tale!.worldLabel ? (
@@ -518,9 +532,13 @@ export function NarrativePage(props: NarrativePageProps) {
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-2">
-          {(isLaeylaTaleBody
+          {(isTale
             ? tale!.tags
-            : ["Fantasia Alta", "Prólogo", "Mundo de Azü"]
+            : chapter!.tags ?? [
+                "Fantasia Alta",
+                "Prólogo",
+                "Mundo de Azü",
+              ]
           ).map((tag) => (
             <span
               key={tag}
@@ -572,7 +590,15 @@ export function NarrativePage(props: NarrativePageProps) {
             </section>
             </div>
           </>
-        ) : (
+        ) : isCampaignNarrativeOnly ? (
+          <div className="narrative-chapter-prose">
+            <div className="max-w-3xl mx-auto mb-16">
+              {chapter!.slug === "prologo-ii-calculo-das-sombras" ? (
+                <CalculoDasSombrasBody />
+              ) : null}
+            </div>
+          </div>
+        ) : isTale ? null : (
           <>
         {!isTale && campaign ? (
           <NarrativeAppendix

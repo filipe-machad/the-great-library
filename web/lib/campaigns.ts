@@ -10,6 +10,15 @@ export interface CampaignChapter {
     alt?: string;
     poster?: string;
   };
+  /** Recorte do hero (imagem/vídeo); omitido = centro. */
+  heroObjectPosition?: "top" | "mid" | "bottom";
+  /** Etiquetas sob o título; senão usam-se as predefinidas da crónica. */
+  tags?: string[];
+  /**
+   * Só narrativa após o ✦, sem apêndice nem cards laterais.
+   * O slug identifica o componente de corpo em `NarrativePage`.
+   */
+  narrativeOnly?: boolean;
 }
 
 export interface Campaign {
@@ -43,6 +52,22 @@ const campaigns: Campaign[] = [
           type: "video",
           src: "/assets/videos/crystal-grave-of-a-warrior-WIDE-live.mp4",
         },
+      },
+      {
+        slug: "prologo-ii-calculo-das-sombras",
+        title: "Prólogo II: O Cálculo das Sombras",
+        subtitle: "No alto do Obelisco de Vidro Negro, a métrica da Lei falha.",
+        type: "prologue",
+        summary:
+          "Dois arquitetos da Lei ajustam um icosaedro impossível enquanto fragmentos da ordem se perdem na montanha — e um espelho trincado guarda um reflexo proibido.",
+        heroMedia: {
+          type: "image",
+          src: "/assets/illustrations/Mnveil_A_close-up_conceptual_photograph_of_a_small_antique_he_a657ea99-9a47-4e12-aa17-8d0a8f7351ce_2.png",
+          alt: "Close-up de uma peça geométrica antiga e enigmática, luz suave sobre metal ou pedra escura",
+        },
+        heroObjectPosition: "mid",
+        tags: ["Crónica", "Prólogo", "Obelisco de Vidro Negro", "Mundo de Azü"],
+        narrativeOnly: true,
       },
     ],
   },
